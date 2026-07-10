@@ -28,7 +28,7 @@ const SignIn = () => {
                         <input value={password} onChange={(e) => {
                             setPassword(e.target.value);
                         }} required className='border border-accent p-3 rounded-lg placeholder:text-secondary focus-within:border-2 outline-none h-14 transition-all duration-150 ease-in-out' type="password" placeholder='Password' />
-                        <button className='mt-6 bg- p-4 text-muted bg-slate-800 rounded-lg cursor-pointer hover:bg-[#16243a] hover:text-primary transition-all duration-300 ease-in-out font-semibold active:bg-[#22375a]'>Login</button>
+                        <button className='mt-6 p-4 text-muted bg-slate-800 rounded-lg cursor-pointer hover:bg-[#16243a] hover:text-primary transition-all duration-300 ease-in-out font-semibold active:bg-[#22375a]'>Login</button>
                     </form>
                 </div>
             </div>
