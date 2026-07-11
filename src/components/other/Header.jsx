@@ -4,7 +4,7 @@ import Button from './Button';
 const Header = () => {
     return (
         <div>
-            <div className='p-10 flex justify-between'>
+            <div className='py-8 flex justify-between'>
                 <h2 className='text-2xl'>Hello, <span className='tracking-wide font-semibold'>Saqib👋</span></h2>
                 <Button variant="secondary" id="logout-btn">
                     Log out
@@ -14,4 +14,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header

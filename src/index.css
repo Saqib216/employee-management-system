@@ -5,11 +5,12 @@
     --font-inter: 'Inter', sans-serif;
 
     /* Background colors → use as: bg-surface, bg-card */
-    --color-surface: #121212;  /* Since '--color-*' is a prefix for colors in tailwind v4 */
+    --color-surface: #121212;
+    /* Since '--color-*' is a prefix for colors in tailwind v4 */
     --color-card: #1E1E1E;
 
     /* Text colors → use as: text-primary, text-secondary, text-muted */
-    --color-primary: #E0E0E0; 
+    --color-primary: #E0E0E0;
     --color-secondary: #B0B0B0;
     --color-muted: #7A7A7A;
 
@@ -21,4 +22,8 @@ body {
     font-family: var(--font-inter);
     background-color: var(--color-surface);
     color: var(--color-primary);
+}
+
+#task-list::-webkit-scrollbar {
+    display: none;
 }
