@@ -6,10 +6,9 @@ import AdminDashboard from './components/Dashboard/AdminDashboard'
 const App = () => {
   return (
     <>
-      {/* <SignIn /> */}
+      <SignIn />
       {/* <EmployeeDashboard /> */}
-      <AdminDashboard />
-      
+      {/* <AdminDashboard /> */}
     </>
   )
 }
