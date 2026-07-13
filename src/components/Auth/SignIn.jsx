@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-const SignIn = () => {
+const SignIn = ({handleLogin}) => {
+    // console.log(handleLogin);
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const formHandler = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
+        handleLogin(email, password);
         setEmail('');
         setPassword('');
     }
@@ -18,7 +21,7 @@ const SignIn = () => {
                 </div>
                 <div id="form-box" className='border-2 border-[#2D2D2D] rounded-xl p-5 bg-card h-96 w-96'>
                     <form onSubmit={(e) => {
-                        formHandler(e);
+                        submitHandler(e);
                     }} className='flex flex-col gap-4'>
                         <p className=''>Enter your email</p>
                         <input value={email} onChange={(e) => {
