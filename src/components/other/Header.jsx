@@ -1,12 +1,13 @@
 import React from 'react'
 import Button from './Button';
 
-const Header = () => {
+const Header = ({ handleLogout }) => {
     return (
         <div>
             <div className='py-8 flex justify-between'>
                 <h2 className='text-2xl'>Hello, <span className='tracking-wide font-semibold'>Saqib👋</span></h2>
-                <Button variant="secondary" id="logout-btn">
+                
+                <Button variant="secondary" id="logout-btn" onClick={handleLogout}>
                     Log out
                 </Button>
             </div>

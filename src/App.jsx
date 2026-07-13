@@ -24,11 +24,15 @@ const App = () => {
     }
   }
 
+  const handleLogout = () => {
+    setUser(null);
+  }
+
   return (
     <>
       {!user ? <SignIn handleLogin={handleLogin} /> : ''}
-      {user === 'employee' && <EmployeeDashboard />}
-      {user === 'admin' && <AdminDashboard />}
+      {user === 'employee' && <EmployeeDashboard handleLogout={handleLogout} />}
+      {user === 'admin' && <AdminDashboard handleLogout={handleLogout} />}
     </>
   )
 }
