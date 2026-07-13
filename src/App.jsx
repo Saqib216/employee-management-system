@@ -20,8 +20,8 @@ const App = () => {
     }
   }
 
-  const data = useContext(AuthContext);
-  
+  const authData = useContext(AuthContext);
+  // console.log(authData);
 
   return (
     <>
