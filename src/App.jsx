@@ -8,20 +8,21 @@ import { AuthContext } from './context/AuthProvider'
 const App = () => {
   const [user, setUser] = useState(null); // can also write '' in place of null
 
+  const authData = useContext(AuthContext);
+  // console.log(authData);
+
+
   const handleLogin = (email, password) => {
-    if (email == 'employee@123.com' && password == '123') {
+    if (authData && authData.employees.find((e) => e.email === email && e.password === password)) {
       setUser('employee');
     }
-    else if (email == 'admin@123.com' && password == '123') {
+    else if (authData && authData.admin.email === email) {
       setUser('admin');
     }
     else {
-      console.log('invalid credentials');
+      alert('invalid credentials');
     }
   }
-
-  const authData = useContext(AuthContext);
-  // console.log(authData);
 
   return (
     <>
