@@ -13,6 +13,12 @@ const employees = [
     email: "ali.raza@ems.com",
     password: "Ali@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 0,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         id: "task001",
@@ -44,6 +50,12 @@ const employees = [
     email: "ayesha.khan@ems.com",
     password: "Ayesha@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 1,
+      completed: 0,
+      failed: 1
+    },
     tasks: [
       {
         id: "task003",
@@ -86,6 +98,12 @@ const employees = [
     email: "bilal.ahmed@ems.com",
     password: "Bilal@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 0,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         id: "task006",
@@ -117,6 +135,12 @@ const employees = [
     email: "fatima.malik@ems.com",
     password: "Fatima@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 1,
+      completed: 0,
+      failed: 0
+    },
     tasks: [
       {
         id: "task008",
@@ -148,6 +172,12 @@ const employees = [
     email: "hamza.sheikh@ems.com",
     password: "Hamza@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 0,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         id: "task010",
@@ -190,6 +220,12 @@ const employees = [
     email: "zainab.iqbal@ems.com",
     password: "Zainab@1234",
     role: "employee",
+    tasksCount: {
+      active: 1,
+      newTask: 1,
+      completed: 0,
+      failed: 0
+    },
     tasks: [
       {
         id: "task013",
@@ -226,5 +262,5 @@ export const getLocalStorage = () => {
   const employees = JSON.parse(localStorage.getItem("employees"));
   const admin = JSON.parse(localStorage.getItem("admin"));
 
-  return {employees, admin}; // returning both as a single object
+  return { employees, admin }; // returning both as a single object
 }

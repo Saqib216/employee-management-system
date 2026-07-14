@@ -13,15 +13,21 @@ const App = () => {
 
 
   const handleLogin = (email, password) => {
-    if (authData && authData.employees.find((e) => e.email === email && e.password === password)) {
-      setUser('employee');
+    // Employee Checking and Finding
+    const employee = authData?.employees.find(e => e.email === email && e.password === password);
+
+    // Admin Checking and Finding
+    const admin = (authData?.admin.email === email && authData?.admin.password === password) ? authData.admin : null;
+
+    // Logged In user
+    const loggedInUser = employee || admin; // whoever matched
+
+    if (loggedInUser) {
+      setUser(loggedInUser);  // User will store full 'object' (for either employee or admin)
+    } else {
+      alert('Invalid Credentials');
     }
-    else if (authData && authData.admin.email === email) {
-      setUser('admin');
-    }
-    else {
-      alert('invalid credentials');
-    }
+
   }
 
   const handleLogout = () => {
@@ -31,8 +37,8 @@ const App = () => {
   return (
     <>
       {!user ? <SignIn handleLogin={handleLogin} /> : ''}
-      {user === 'employee' && <EmployeeDashboard handleLogout={handleLogout} />}
-      {user === 'admin' && <AdminDashboard handleLogout={handleLogout} />}
+      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} adminData={user}/>}
+      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} employeeData={user}/>}
     </>
   )
 }
