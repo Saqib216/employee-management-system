@@ -1,12 +1,14 @@
 import React from 'react'
 import Button from './Button';
 
-const Header = ({ handleLogout, employeeData }) => {
+const Header = ({ handleLogout, employeeData, adminData }) => {
+    const userName = employeeData?.name || adminData?.name || 'User';
+
     return (
         <div>
             <div className='py-8 flex justify-between'>
-                <h2 className='text-2xl'>Hello, <span className='tracking-wide font-semibold'>{employeeData.name}👋</span></h2>
-                
+                <h2 className='text-2xl'>Hello, <span className='tracking-wide font-semibold'>{userName}👋</span></h2>
+
                 <Button variant="secondary" id="logout-btn" onClick={handleLogout}>
                     Log out
                 </Button>

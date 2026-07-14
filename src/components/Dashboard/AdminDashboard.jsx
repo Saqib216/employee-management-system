@@ -3,11 +3,10 @@ import Header from '../other/Header'
 import CreateTask from '../other/CreateTask'
 import AllTasks from '../other/AllTasks'
 
-const AdminDashboard = ({handleLogout, adminData}) => {
-  console.log(adminData);
+const AdminDashboard = ({ handleLogout, adminData }) => {
   return (
     <div className='m-5'>
-      <Header handleLogout={handleLogout}/>
+      <Header handleLogout={handleLogout} adminData={adminData} />
       <CreateTask />
       <AllTasks />
     </div>

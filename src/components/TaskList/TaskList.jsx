@@ -4,14 +4,24 @@ import CompletedTask from './CompletedTask'
 import FailedTask from './FailedTask'
 import AcceptedTask from './AcceptedTask'
 
-const TaskList = () => {
+const TaskList = ({ employeeData }) => {
     return (
         <div>
             <div id='task-list' className='mt-15 w-full flex gap-3 overflow-x-auto flex-nowrap'>
-                <NewTask />
-                <AcceptedTask />
-                <CompletedTask />
-                <FailedTask />
+                {employeeData.tasks.map((task, idx) => {
+                    if (task.NewTask) {
+                        return <NewTask key={idx} />
+                    }
+                    if (task.active) {
+                        return <AcceptedTask key={idx}/>
+                    }
+                    if (task.completed) {
+                        return <CompletedTask key={idx}/>
+                    }
+                    if (task.failed) {
+                        return <FailedTask key={idx}/>
+                    }
+                })}
             </div>
         </div>
     )
