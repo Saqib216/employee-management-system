@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import SignIn from './components/Auth/SignIn'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
-import { getLocalStorage, setLocalStorage } from './utils/LocalStorage'
 import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
@@ -11,6 +10,12 @@ const App = () => {
   const authData = useContext(AuthContext);
   // console.log(authData);
 
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (savedUser) {
+      setUser(savedUser); // restore loggedInUser from local Storage
+    }
+  }, []);
 
   const handleLogin = (email, password) => {
     // Employee Checking and Finding
@@ -24,21 +29,23 @@ const App = () => {
 
     if (loggedInUser) {
       setUser(loggedInUser);  // User will store full 'object' (for either employee or admin)
+      localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser)); // save the loggedInUser to local storage
+
     } else {
       alert('Invalid Credentials');
     }
-
   }
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem('loggedInUser');  // remove the loggedInUser from localStorage upon logout.
   }
 
   return (
     <>
       {!user ? <SignIn handleLogin={handleLogin} /> : ''}
-      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} employeeData={user}/>}
-      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} adminData={user}/>}
+      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} employeeData={user} />}
+      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} adminData={user} />}
     </>
   )
 }
