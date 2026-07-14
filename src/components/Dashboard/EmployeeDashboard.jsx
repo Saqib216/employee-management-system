@@ -3,12 +3,12 @@ import Header from '../other/Header'
 import TaskListOverview from '../other/TaskListOverview'
 import TaskList from '../TaskList/TaskList'
 
-const EmployeeDashboard = ({ handleLogout }) => {
+const EmployeeDashboard = ({ handleLogout, employeeData }) => {
   return (
     <div className='m-5'>
-        <Header handleLogout={handleLogout} />
-        <TaskListOverview />
-        <TaskList />
+        <Header handleLogout={handleLogout} employeeData={employeeData} />
+        <TaskListOverview employeeData={employeeData}/>
+        <TaskList employeeData={employeeData}/>
     </div>
   )
 }

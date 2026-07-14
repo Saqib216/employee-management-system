@@ -37,8 +37,8 @@ const App = () => {
   return (
     <>
       {!user ? <SignIn handleLogin={handleLogin} /> : ''}
-      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} adminData={user}/>}
-      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} employeeData={user}/>}
+      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} employeeData={user}/>}
+      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} adminData={user}/>}
     </>
   )
 }
