@@ -9,17 +9,17 @@ const TaskList = ({ employeeData }) => {
         <div>
             <div id='task-list' className='mt-15 w-full flex gap-3 overflow-x-auto flex-nowrap'>
                 {employeeData.tasks.map((task, idx) => {
-                    if (task.NewTask) {
-                        return <NewTask key={idx} />
+                    if (task.newTask) {
+                        return <NewTask key={idx} task={task}/>
                     }
                     if (task.active) {
-                        return <AcceptedTask key={idx}/>
+                        return <AcceptedTask key={idx} task={task}/>
                     }
                     if (task.completed) {
-                        return <CompletedTask key={idx}/>
+                        return <CompletedTask key={idx} task={task}/>
                     }
                     if (task.failed) {
-                        return <FailedTask key={idx}/>
+                        return <FailedTask key={idx} task={task}/>
                     }
                 })}
             </div>
