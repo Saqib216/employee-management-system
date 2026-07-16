@@ -58,7 +58,7 @@ const employees = [
     },
     tasks: [
       {
-        id: "task003",
+        id: "task001",
         active: false,
         newTask: true,
         completed: false,
@@ -69,7 +69,7 @@ const employees = [
         category: "Reporting"
       },
       {
-        id: "task004",
+        id: "task002",
         active: true,
         newTask: false,
         completed: false,
@@ -80,7 +80,7 @@ const employees = [
         category: "Client Relations"
       },
       {
-        id: "task005",
+        id: "task003",
         active: false,
         newTask: false,
         completed: false,
@@ -106,7 +106,7 @@ const employees = [
     },
     tasks: [
       {
-        id: "task006",
+        id: "task001",
         active: true,
         newTask: false,
         completed: false,
@@ -117,7 +117,7 @@ const employees = [
         category: "Backend"
       },
       {
-        id: "task007",
+        id: "task002",
         active: false,
         newTask: false,
         completed: true,
@@ -143,7 +143,7 @@ const employees = [
     },
     tasks: [
       {
-        id: "task008",
+        id: "task001",
         active: false,
         newTask: true,
         completed: false,
@@ -154,7 +154,7 @@ const employees = [
         category: "Design"
       },
       {
-        id: "task009",
+        id: "task002",
         active: true,
         newTask: false,
         completed: false,
@@ -180,7 +180,7 @@ const employees = [
     },
     tasks: [
       {
-        id: "task010",
+        id: "task001",
         active: false,
         newTask: false,
         completed: true,
@@ -191,7 +191,7 @@ const employees = [
         category: "DevOps"
       },
       {
-        id: "task011",
+        id: "task002",
         active: false,
         newTask: false,
         completed: false,
@@ -202,7 +202,7 @@ const employees = [
         category: "Backend"
       },
       {
-        id: "task012",
+        id: "task003",
         active: true,
         newTask: false,
         completed: false,
@@ -228,7 +228,7 @@ const employees = [
     },
     tasks: [
       {
-        id: "task013",
+        id: "task001",
         active: false,
         newTask: true,
         completed: false,
@@ -239,7 +239,7 @@ const employees = [
         category: "Marketing"
       },
       {
-        id: "task014",
+        id: "task002",
         active: true,
         newTask: false,
         completed: false,
