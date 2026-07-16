@@ -7,8 +7,7 @@ import { AuthContext } from './context/AuthProvider'
 const App = () => {
   const [user, setUser] = useState(null); // can also write '' in place of null
 
-  const authData = useContext(AuthContext);
-  // console.log(authData);
+  const [userData, setUserData] = useContext(AuthContext);
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -19,10 +18,10 @@ const App = () => {
 
   const handleLogin = (email, password) => {
     // Employee Checking and Finding
-    const employee = authData?.employees.find(e => e.email === email && e.password === password);
+    const employee = userData?.employees.find(e => e.email === email && e.password === password);
 
     // Admin Checking and Finding
-    const admin = (authData?.admin.email === email && authData?.admin.password === password) ? authData.admin : null;
+    const admin = (userData?.admin.email === email && userData?.admin.password === password) ? userData.admin : null;
 
     // Logged In user
     const loggedInUser = employee || admin; // whoever matched

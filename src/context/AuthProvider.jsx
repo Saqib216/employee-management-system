@@ -7,14 +7,25 @@ const AuthProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        setLocalStorage();
-        const {employees, admin} = getLocalStorage();
-        setUserData({employees, admin});
+        // Only seed data if localStorage is empty (first time)
+        if (!localStorage.getItem('employees')) {
+            setLocalStorage();
+        }
+        const { employees, admin } = getLocalStorage();
+        setUserData({ employees, admin });
     }, []);
+
+    // Save updated userData to localStorage whenever it changes
+    useEffect(() => {
+        if (userData) {
+            localStorage.setItem('employees', JSON.stringify(userData.employees));
+            localStorage.setItem('admin', JSON.stringify(userData.admin));
+        }
+    }, [userData]);
 
     return (
         <div>
-            <AuthContext.Provider value={userData}>
+            <AuthContext.Provider value={[userData, setUserData]}>
                 {children}
             </AuthContext.Provider>
         </div>

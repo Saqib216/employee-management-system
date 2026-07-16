@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from './Button';
+import { AuthContext } from '../../context/AuthProvider';
 
 const CreateTask = () => {
+    const [userData, setUserData] = useContext(AuthContext);
+
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
     const [taskDate, setTaskDate] = useState('');
     const [assignTo, setAssignTo] = useState('');
     const [category, setCategory] = useState('');
 
-
-
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const employees = JSON.parse(localStorage.getItem('employees'));
-        employees.forEach((employee, idx) => {
+        const employees = userData.employees;
+        const admin = userData.admin;
+        
+        employees.forEach(employee => {
             if (assignTo.toLowerCase() === employee.name.split(' ')[0].toLowerCase()) {
                 const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
 
@@ -31,10 +34,11 @@ const CreateTask = () => {
                 };
 
                 employee.tasks.push(newTask);
-                employee.tasksCount.newTask = employee.tasksCount.newTask + 1
+                employee.tasksCount.active += 1;  
             }
         });
-        localStorage.setItem("employees", JSON.stringify(employees));
+
+        setUserData({employees, admin});
 
         setTaskTitle('');
         setTaskDescription('');
