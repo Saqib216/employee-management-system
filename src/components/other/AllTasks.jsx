@@ -14,8 +14,8 @@ const AllTasks = () => {
         <p className='w-1/5 '>Failed</p>
       </div>
 
-      {authData.employees.map((employee) => {
-        return <div className='flex justify-between border border-accent p-3 rounded-xl text-center'>
+      {authData.employees.map((employee, idx) => {
+        return <div key={idx} className='flex justify-between border border-accent p-3 rounded-xl text-center'>
           <h3 className='w-1/5 text-amber-500'>{employee.name}</h3>
           <p className='w-1/5 text-emerald-700'>{employee.tasksCount.newTask}</p>
           <p className='w-1/5 text-pink-500'>{employee.tasksCount.active}</p>
