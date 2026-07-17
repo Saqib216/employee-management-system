@@ -14,8 +14,12 @@ const NewTask = ({ task }) => {
             </div>
 
             <div className='flex justify-between'>
-                <button className='bg-green-600 rounded-lg px-2 py-1 text-sm'>Mark as Completed</button>
-                <button className='bg-red-600 rounded-lg px-2 py-1 text-sm'>Mark as Failed</button>
+                <button className='bg-green-600 rounded-lg px-2 py-1 text-sm cursor-pointer' onClick={(e) => {
+                    e.target.innerHTML = "Completed";
+                }}>Mark as Completed</button>
+                <button className='bg-red-600 rounded-lg px-2 py-1 text-sm cursor-pointer' onClick={(e) => {
+                    e.target.innerHTML = "Failed"
+                }}>Mark as Failed</button>
             </div>
         </div>
     )
