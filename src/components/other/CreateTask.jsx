@@ -23,8 +23,8 @@ const CreateTask = () => {
 
                 const newTask = {
                     id,
-                    active: true,
-                    newTask: false,
+                    active: false,
+                    newTask: true,
                     completed: false,
                     failed: false,
                     taskTitle,
@@ -34,7 +34,7 @@ const CreateTask = () => {
                 };
 
                 employee.tasks.push(newTask);
-                employee.tasksCount.active += 1;  
+                employee.tasksCount.newTask += 1;  
             }
         });
 
