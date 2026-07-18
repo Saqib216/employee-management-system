@@ -16,7 +16,7 @@ const CreateTask = () => {
 
         const employees = userData.employees;
         const admin = userData.admin;
-        
+
         employees.forEach(employee => {
             if (assignTo.toLowerCase() === employee.name.split(' ')[0].toLowerCase()) {
                 const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
@@ -34,11 +34,11 @@ const CreateTask = () => {
                 };
 
                 employee.tasks.push(newTask);
-                employee.tasksCount.newTask += 1;  
+                employee.tasksCount.newTask += 1;
             }
         });
 
-        setUserData({employees, admin});
+        setUserData({ employees, admin });
 
         setTaskTitle('');
         setTaskDescription('');
@@ -81,9 +81,14 @@ const CreateTask = () => {
                     <div className='flex flex-col gap-8'>
                         <div>
                             <h3>Assign to</h3>
-                            <input value={assignTo} onChange={(e) => {
+                            <select onChange={(e) => {
                                 setAssignTo(e.target.value);
-                            }} type="text" placeholder='Employee Name...' className='outline-none border border-accent rounded-lg p-2 w-[500px]' />
+                            }} id="employee-names" className='outline-none border border-accent rounded-lg p-2 w-[500px]' value={assignTo}>
+                                {userData.employees.map((employee, idx) => {
+                                    return <option className='text-black' key={idx} value={employee.name}>{employee.name}</option>
+                                })}
+                            </select>
+
                         </div>
 
                         <div>
