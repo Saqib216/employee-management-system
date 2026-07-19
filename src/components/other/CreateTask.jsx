@@ -18,7 +18,7 @@ const CreateTask = () => {
         const admin = userData.admin;
 
         employees.forEach(employee => {
-            if (assignTo.toLowerCase() === employee.name.split(' ')[0].toLowerCase()) {
+            if (assignTo === employee.name) {
                 const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
 
                 const newTask = {
