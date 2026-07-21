@@ -72,23 +72,23 @@ const CreateTask = () => {
                     <div className='flex flex-col gap-8'>
                         <div>
                             <h3>Task Title</h3>
-                            <input value={taskTitle} onChange={(e) => {
+                            <input required value={taskTitle} onChange={(e) => {
                                 setTaskTitle(e.target.value);
-                            }} type="text" placeholder='Make a Navbar component in react' className='outline-none border border-accent rounded-lg p-2 w-[500px]' />
+                            }} type="text" placeholder='Make a Navbar component in react' className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
                         </div>
 
                         <div>
                             <h3>Description</h3>
-                            <textarea value={taskDescription} onChange={(e) => {
+                            <textarea required value={taskDescription} onChange={(e) => {
                                 setTaskDescription(e.target.value);
-                            }} placeholder='Add Description' className='outline-none border border-accent rounded-lg p-2 w-[500px] min-h-[200px]'></textarea>
+                            }} placeholder='Add Description' className='outline-none border border-accent rounded-lg p-2 w-[500px] min-h-[200px] bg-surface'></textarea>
                         </div>
 
                         <div>
                             <h3>Date</h3>
-                            <input value={taskDate} onChange={(e) => {
+                            <input required value={taskDate} onChange={(e) => {
                                 setTaskDate(e.target.value);
-                            }} type="date" className='outline-none border border-accent rounded-lg p-2 w-[500px]' />
+                            }} type="date" className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
                         </div>
                     </div>
 
@@ -112,7 +112,7 @@ const CreateTask = () => {
 
                         <div>
                             <h3>Category</h3>
-                            <input value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-accent rounded-lg p-2 w-[500px]' />
+                            <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
                         </div>
 
                         <Button id="create-task-btn" variant="primary">Create Task</Button>
