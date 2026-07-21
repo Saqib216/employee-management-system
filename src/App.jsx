@@ -3,8 +3,16 @@ import SignIn from './components/Auth/SignIn'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import ErrorPage from './pages/ErrorPage'
+
+const ProtectedRoute = ({ user, children }) => {
+  if (!user) {
+    return <Navigate to='/' replace />
+  }
+  
+  return children;
+}
 
 const App = () => {
   const [user, setUser] = useState(null); // can also write '' in place of null
@@ -68,9 +76,17 @@ const App = () => {
       <Routes>
         <Route path='/' element={<SignIn handleLogin={handleLogin} />} />
 
-        <Route path='/dashboard/admin' element={<AdminDashboard handleLogout={handleLogout} adminData={user} />} />
+        <Route path='/dashboard/admin' element={
+          <ProtectedRoute user={user}>
+            <AdminDashboard handleLogout={handleLogout} adminData={user} />
+          </ProtectedRoute>
+        } />
 
-        <Route path='/dashboard/employee' element={<EmployeeDashboard handleLogout={handleLogout} employeeData={user} />} />
+        <Route path='/dashboard/employee' element={
+          <ProtectedRoute user={user}>
+            <EmployeeDashboard handleLogout={handleLogout} employeeData={user} />
+          </ProtectedRoute>
+        } />
 
         <Route path='*' element={<ErrorPage />} />
 
