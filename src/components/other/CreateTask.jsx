@@ -62,7 +62,7 @@ const CreateTask = () => {
                 </div>
             )}
 
-            <form onSubmit={(e) => {
+            <form id="task-form" onSubmit={(e) => {
                 submitHandler(e);
             }}>
                 <div className='font-semibold text-3xl text-center'>Assign Tasks</div>
@@ -74,45 +74,48 @@ const CreateTask = () => {
                             <h3>Task Title</h3>
                             <input required value={taskTitle} onChange={(e) => {
                                 setTaskTitle(e.target.value);
-                            }} type="text" placeholder='Make a Navbar component in react' className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
+                            }} type="text" placeholder='Make a Navbar component in react' className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
                         </div>
 
                         <div>
                             <h3>Description</h3>
                             <textarea required value={taskDescription} onChange={(e) => {
                                 setTaskDescription(e.target.value);
-                            }} placeholder='Add Description' className='outline-none border border-accent rounded-lg p-2 w-[500px] min-h-[200px] bg-surface'></textarea>
+                            }} placeholder='Add Description' className='outline-none border border-accent rounded-lg p-2 w-125 min-h-50 bg-surface'></textarea>
                         </div>
 
                         <div>
                             <h3>Date</h3>
                             <input required value={taskDate} onChange={(e) => {
                                 setTaskDate(e.target.value);
-                            }} type="date" className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
+                            }} type="date" className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
                         </div>
                     </div>
 
                     <div className='flex flex-col gap-8'>
                         <div>
                             <h3>Assign to</h3>
-                            <select
-                                onChange={(e) => setAssignTo(e.target.value)}
-                                id="employee-names"
-                                className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface'
-                                value={assignTo}
-                            >
-                                {userData.employees.map((employee, idx) => (
-                                    <option className='text-primary' key={idx} value={employee.name}>
-                                        {employee.name}
-                                    </option>
-                                ))}
-                            </select>
+
+                            <div className='select-wrapper'>
+                                <select
+                                    onChange={(e) => setAssignTo(e.target.value)}
+                                    id="employee-names"
+                                    className='outline-none rounded-lg p-2 w-125'
+                                    value={assignTo}
+                                >
+                                    {userData.employees.map((employee, idx) => (
+                                        <option className='' key={idx} value={employee.name}>
+                                            {employee.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
 
                         </div>
 
                         <div>
                             <h3>Category</h3>
-                            <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-accent rounded-lg p-2 w-[500px] bg-surface' />
+                            <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
                         </div>
 
                         <Button id="create-task-btn" variant="primary">Create Task</Button>

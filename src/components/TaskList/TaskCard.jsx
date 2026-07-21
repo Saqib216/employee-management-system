@@ -53,7 +53,7 @@ const TaskCard = ({ task }) => {
     const markFailed     = () => updateTask({ active: false, newTask: false, completed: false, failed: true  });
 
     return (
-        <div className='flex flex-col gap-6 bg-card w-[25%] h-[300px] p-4 rounded-xl shrink-0'>
+        <div className='flex flex-col gap-6 bg-card w-[25%] h-75 p-4 rounded-xl shrink-0'>
             {/* Top row: category + date */}
             <div className='flex justify-between items-center'>
                 <span className={`${statusStyle[status]} rounded-lg px-3 py-1 text-xs font-semibold`}>
