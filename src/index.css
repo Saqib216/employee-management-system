@@ -67,7 +67,8 @@ select option:hover {
 }
 
 select option:checked {
-    background: var(--color-card);   /* Selected Item Background */
+    background: var(--color-card);
+    /* Selected Item Background */
     color: #fff;
 }
 
@@ -77,4 +78,39 @@ select option::checkmark {
 
 #task-list::-webkit-scrollbar {
     display: none;
+}
+
+/* Date input — fix calendar icon color for dark theme */
+input[type="date"] {
+    color: var(--color-primary);
+    color-scheme: dark;
+    /* tells browser to use dark calendar popup */
+    cursor: pointer;
+}
+
+/* Flip the calendar icon to be visible on dark backgrounds */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    transition: filter 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(0);
+}
+
+input,
+textarea,
+select {
+    transition: box-shadow 0.25s ease;
+}
+
+/* Shared focus glow for all form fields */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
 }

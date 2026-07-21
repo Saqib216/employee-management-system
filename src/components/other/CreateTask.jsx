@@ -74,33 +74,31 @@ const CreateTask = () => {
                             <h3>Task Title</h3>
                             <input required value={taskTitle} onChange={(e) => {
                                 setTaskTitle(e.target.value);
-                            }} type="text" placeholder='Make a Navbar component in react' className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
+                            }} type="text" placeholder='Make a Navbar component in react' className='border border-accent rounded-lg p-2 w-125 bg-surface' />
                         </div>
 
                         <div>
                             <h3>Description</h3>
                             <textarea required value={taskDescription} onChange={(e) => {
                                 setTaskDescription(e.target.value);
-                            }} placeholder='Add Description' className='outline-none border border-accent rounded-lg p-2 w-125 min-h-50 bg-surface'></textarea>
+                            }} placeholder='Add Description' className='border border-accent rounded-lg p-2 w-125 min-h-50 bg-surface'></textarea>
                         </div>
 
                         <div>
                             <h3>Date</h3>
                             <input required value={taskDate} onChange={(e) => {
                                 setTaskDate(e.target.value);
-                            }} type="date" className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
+                            }} type="date" className='border border-accent rounded-lg p-2 w-125 bg-surface text-primary' />
                         </div>
                     </div>
 
                     <div className='flex flex-col gap-8'>
                         <div>
                             <h3>Assign to</h3>
-
-                            <div className='select-wrapper'>
                                 <select
                                     onChange={(e) => setAssignTo(e.target.value)}
                                     id="employee-names"
-                                    className='outline-none rounded-lg p-2 w-125'
+                                    className='rounded-lg p-2 w-125'
                                     value={assignTo}
                                 >
                                     {userData.employees.map((employee, idx) => (
@@ -109,8 +107,6 @@ const CreateTask = () => {
                                         </option>
                                     ))}
                                 </select>
-                            </div>
-
                         </div>
 
                         <div>
