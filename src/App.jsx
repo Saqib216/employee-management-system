@@ -4,6 +4,7 @@ import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import ErrorPage from './pages/ErrorPage'
 
 const App = () => {
   const [user, setUser] = useState(null); // can also write '' in place of null
@@ -71,11 +72,9 @@ const App = () => {
 
         <Route path='/dashboard/employee' element={<EmployeeDashboard handleLogout={handleLogout} employeeData={user} />} />
 
-      </Routes>
+        <Route path='*' element={<ErrorPage />} />
 
-      {/* {!user ? <SignIn handleLogin={handleLogin} /> : ''}
-      {user?.role === 'employee' && <EmployeeDashboard handleLogout={handleLogout} employeeData={user} />}
-      {user?.role === 'admin' && <AdminDashboard handleLogout={handleLogout} adminData={user} />} */}
+      </Routes>
     </>
   )
 }
