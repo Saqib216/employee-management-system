@@ -71,7 +71,7 @@ const CreateTask = () => {
 
                     <div className='flex flex-col gap-8'>
                         <div>
-                            <h3>Task Title</h3>
+                            <h3 className='flex gap-1'>Task Title <span className='text-red-700 text-xl'>*</span></h3>
                             <input required value={taskTitle} onChange={(e) => {
                                 setTaskTitle(e.target.value);
                             }} type="text" placeholder='Make a Navbar component in react' className='border border-accent rounded-lg p-2 w-125 bg-surface' />
@@ -79,13 +79,13 @@ const CreateTask = () => {
 
                         <div>
                             <h3>Description</h3>
-                            <textarea required value={taskDescription} onChange={(e) => {
+                            <textarea value={taskDescription} onChange={(e) => {
                                 setTaskDescription(e.target.value);
                             }} placeholder='Add Description' className='border border-accent rounded-lg p-2 w-125 min-h-50 bg-surface'></textarea>
                         </div>
 
                         <div>
-                            <h3>Date</h3>
+                            <h3 className='flex gap-1'>Date <span className='text-red-700 text-xl'>*</span></h3>
                             <input required value={taskDate} onChange={(e) => {
                                 setTaskDate(e.target.value);
                             }} type="date" className='border border-accent rounded-lg p-2 w-125 bg-surface text-primary' />
@@ -94,7 +94,7 @@ const CreateTask = () => {
 
                     <div className='flex flex-col gap-8'>
                         <div>
-                            <h3>Assign to</h3>
+                            <h3 className='flex gap-1'>Assign to <span className='text-red-700 text-xl'>*</span></h3>
                                 <select
                                     onChange={(e) => setAssignTo(e.target.value)}
                                     id="employee-names"
@@ -110,7 +110,7 @@ const CreateTask = () => {
                         </div>
 
                         <div>
-                            <h3>Category</h3>
+                            <h3 className='flex gap-1'>Category <span className='text-red-700 text-xl'>*</span></h3>
                             <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-accent rounded-lg p-2 w-125 bg-surface' />
                         </div>
 
