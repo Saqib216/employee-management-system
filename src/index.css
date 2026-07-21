@@ -110,7 +110,7 @@ select {
 /* Shared focus glow for all form fields */
 input:focus,
 textarea:focus,
-select:focus {
+select:hover {
     outline: none;
     box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
 }

@@ -36,8 +36,12 @@ const App = () => {
   }
 
   const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('loggedInUser');  // remove the loggedInUser from localStorage upon logout.
+    if (confirm(
+      (user?.role==='admin') ? `${user?.name.split(' ')[1]}, are you sure you want to log out?` : `${user?.name.split(' ')[0]}, are you sure you want to log out?`
+    )) {
+      setUser(null);
+      localStorage.removeItem('loggedInUser');  // remove the loggedInUser from localStorage upon logout.
+    }
   }
 
   return (
