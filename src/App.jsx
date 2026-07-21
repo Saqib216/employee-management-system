@@ -3,7 +3,7 @@ import SignIn from './components/Auth/SignIn'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
-import {Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 
 const App = () => {
   const [user, setUser] = useState(null); // can also write '' in place of null
@@ -16,6 +16,13 @@ const App = () => {
     const savedUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (savedUser) {
       setUser(savedUser); // restore loggedInUser from local Storage
+
+      // navigation when page reloads (stay on the same page)
+      if (savedUser.role === 'admin') {
+        navigate('/dashboard/admin');
+      } else {
+        navigate('/dashboard/employee');
+      }
     }
   }, []);
 
@@ -34,7 +41,7 @@ const App = () => {
       localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser)); // save the loggedInUser to local storage
 
       // Navigation:
-      if(loggedInUser.role === 'admin'){
+      if (loggedInUser.role === 'admin') {
         navigate('/dashboard/admin')
       } else {
         navigate('/dashboard/employee')
@@ -58,11 +65,11 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path='/' element={<SignIn handleLogin={handleLogin}/>} />
+        <Route path='/' element={<SignIn handleLogin={handleLogin} />} />
 
-        <Route path='/dashboard/admin' element={<AdminDashboard handleLogout={handleLogout} adminData={user}/>}/>
+        <Route path='/dashboard/admin' element={<AdminDashboard handleLogout={handleLogout} adminData={user} />} />
 
-        <Route path='/dashboard/employee' element={<EmployeeDashboard handleLogout={handleLogout} employeeData={user}/>}/>
+        <Route path='/dashboard/employee' element={<EmployeeDashboard handleLogout={handleLogout} employeeData={user} />} />
 
       </Routes>
 
