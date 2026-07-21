@@ -20,24 +20,22 @@ const CreateTask = () => {
         const admin = userData.admin;
 
         employees.forEach(employee => {
-            if (assignTo === employee.name) {
-                const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
+            const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
 
-                const newTask = {
-                    id,
-                    active: false,
-                    newTask: true,
-                    completed: false,
-                    failed: false,
-                    taskTitle,
-                    taskDescription,
-                    taskDate,
-                    category
-                };
+            const newTask = {
+                id,
+                active: false,
+                newTask: true,
+                completed: false,
+                failed: false,
+                taskTitle,
+                taskDescription,
+                taskDate,
+                category
+            };
 
-                employee.tasks.push(newTask);
-                employee.tasksCount.newTask += 1;
-            }
+            employee.tasks.push(newTask);
+            employee.tasksCount.newTask += 1;
         });
 
         setUserData({ employees, admin });
