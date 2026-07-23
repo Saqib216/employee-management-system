@@ -10,7 +10,7 @@ const ProtectedRoute = ({ user, children }) => {
   if (!user) {
     return <Navigate to='/' replace />
   }
-  
+
   return children;
 }
 
@@ -47,17 +47,17 @@ const App = () => {
 
     if (loggedInUser) {
       setUser(loggedInUser);  // User will store full 'object' (for either employee or admin)
-      localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser)); // save the loggedInUser to local storage
-
+      localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser)); // save the loggedInUser to local storage      
       // Navigation:
       if (loggedInUser.role === 'admin') {
         navigate('/dashboard/admin')
       } else {
         navigate('/dashboard/employee')
       }
-
+      return true;
+      
     } else {
-      alert('Invalid Credentials');
+      return false;
     }
   }
 
