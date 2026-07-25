@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../other/Button';
+import { Link } from 'react-router-dom';
 
 
 const SignIn = ({ handleLogin }) => {
@@ -28,45 +29,51 @@ const SignIn = ({ handleLogin }) => {
         setPassword('');
     }
     return (
-        <div className='flex flex-col gap-5 justify-center w-screen h-screen items-center bg-surface'>
+        <div className='flex flex-col gap-5 justify-center w-screen h-screen items-center bg-surface px-4'>
+
+            <header className='flex cursor-pointer items-center gap-3 w-screen fixed top-0 px-3 py-3 border-b border-b-border outline-none justify-between'>
+
+                <Link to='/' className='flex items-center gap-3'>
+                    <div className='w-11 h-11 flex items-center justify-center bg-card rounded-lg'>
+                        <span className='text-accent font-bold text-lg'>W</span>
+                    </div>
+                    <h2 className='text-lg font-semibold tracking-wide uppercase text-primary'>Workforce Pro</h2>
+                </Link>
+
+                <i className="fa-solid fa-moon"></i>
+            </header>
+
             <div className='w-full max-w-100 flex flex-col gap-8'>
 
-                {/* branding logo */}
-                <div className='flex flex-col items-center gap-4'>
-                    <div className='w-11 h-11 flex items-center justify-center bg-primary rounded-full'>
-                        <span className='text-surface font-bold text-lg'>W</span>
-                    </div>
-                    <h2 className='text-sm font-semibold tracking-tight text-primary'>Workforce Pro</h2>
-                </div>
-
                 <div className='flex flex-col gap-2'>
-                    <h2 className='text-4xl font-semibold uppercase tracking-wide'>Welcome</h2>
-                    <p className='text-sm text-secondary pl-1 tracking-wide font-medium uppercase'>Let's Get Started!</p>
+                    <h2 className='text-4xl font-semibold  tracking-tight'>Welcome back</h2>
+                    <p className='text-sm text-secondary tracking font-medium'>Let's get started, sign in to continue.</p>
                 </div>
 
                 <form onSubmit={(e) => {
                     submitHandler(e);
-                }} className='flex flex-col gap-4'>
-                    <p className=''>Enter your email</p>
+                }} className='flex flex-col gap-5'>
+
+                    <label className='text-[11px] font-semibold uppercase tracking-wider text-muted'>Email address</label>
 
                     <input value={email} onChange={(e) => {
                         setEmail(e.target.value);
                         setError('');
-                    }} className={`border border-accent p-3 rounded-lg placeholder:text-secondary focus-within:border-2 outline-none h-14 transition-all duration-100 ease-in-out ${error ? 'border-red-500' : 'border-accent'}`} type="email" placeholder='Email' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted outline-none hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out ${error ? 'border-danger' : 'border-border'}`} type="email" placeholder='name@company.com' />
 
-                    <p className='mt-4'>Enter password</p>
+                    <label className='text-[11px] font-semibold uppercase tracking-wider text-muted'>Password</label>
                     <input value={password} onChange={(e) => {
                         setPassword(e.target.value);
                         setError('');
-                    }} className={`border border-accent p-3 rounded-lg placeholder:text-secondary focus-within:border-2 outline-none h-14 transition-all duration-150 ease-in-out ${error ? 'border-red-500' : 'border-accent'}`} type="password" placeholder='Password' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted outline-none hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out ${error ? 'border-danger' : 'border-border'}'}`} type="password" placeholder='••••••••' />
 
                     {
                         error && (
-                            <p className='text-red-400 text-sm transition-all duration-130 ease-in-out'>⚠️ {error}</p>
+                            <p className='text-danger text-xs font-medium -mt-1'>{error}</p>
                         )
                     }
 
-                    <Button id="login-btn" class_="mt-6 py-2 text-lg" variant="primary">Login</Button>
+                    <Button id="login-btn" class_="w-full mt-6 py-3 text-md" variant="primary">Continue</Button>
                 </form>
             </div>
         </div>

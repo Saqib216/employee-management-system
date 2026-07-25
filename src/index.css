@@ -139,16 +139,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     filter: invert(0);
 }
 
-input,
-textarea,
-select {
-    transition: box-shadow 0.25s ease;
-}
-
 /* Shared focus glow for all form fields */
 input:focus,
 textarea:focus,
 select:hover {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
 }
