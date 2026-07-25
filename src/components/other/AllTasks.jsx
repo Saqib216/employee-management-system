@@ -7,7 +7,26 @@ const AllTasks = () => {
 
   const [selectedEmployee, setSelectedEmployee] = useState(userData.employees[0]);
 
-  const deleteTask = (taskId) => { }
+  const deleteTask = (taskId) => {
+    const updatedEmployees = userData.employees.map(employee => {
+      if (employee.email === selectedEmployee.email) {
+        const updatedTasks = employee.tasks.filter(t => t.id !== taskId);
+        const newCount = {
+          newTask: updatedTasks.filter(t => t.newTask).length,
+          active: updatedTasks.filter(t => t.active).length,
+          completed: updatedTasks.filter(t => t.completed).length,
+          failed: updatedTasks.filter(t => t.failed).length,
+        };
+
+        const updatedEmp = { ...employee, tasks: updatedTasks, tasksCount: newCount };
+
+        setSelectedEmployee(updatedEmp);
+        return updatedEmp;
+      }
+      return employee;
+    });
+    setUserData({ ...userData, employees: updatedEmployees });
+  }
 
   return (
     <div className='m-10 min-h-screen'>
@@ -75,6 +94,15 @@ const AllTasks = () => {
           </div>
         ))}
       </div>
+
+      {/* for empty state: */}
+      {
+        selectedEmployee.tasks.length === 0 && (
+          <p className='text-muted text-center py-8'>
+            No tasks assigned to this employee yet.
+          </p>
+        )
+      }
 
     </div>
   )
