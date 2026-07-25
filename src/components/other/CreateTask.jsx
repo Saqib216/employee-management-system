@@ -20,22 +20,23 @@ const CreateTask = () => {
         const admin = userData.admin;
 
         employees.forEach(employee => {
-            const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
+            if (assignTo === employee.name) {
+                const id = `task${String(employee.tasks.length + 1).padStart(3, '0')}`;
+                const newTask = {
+                    id,
+                    active: false,
+                    newTask: true,
+                    completed: false,
+                    failed: false,
+                    taskTitle,
+                    taskDescription,
+                    taskDate,
+                    category
+                };
+                employee.tasks.push(newTask);
+                employee.tasksCount.newTask += 1;
+            }
 
-            const newTask = {
-                id,
-                active: false,
-                newTask: true,
-                completed: false,
-                failed: false,
-                taskTitle,
-                taskDescription,
-                taskDate,
-                category
-            };
-
-            employee.tasks.push(newTask);
-            employee.tasksCount.newTask += 1;
         });
 
         setUserData({ employees, admin });
@@ -95,18 +96,18 @@ const CreateTask = () => {
                     <div className='flex flex-col gap-8'>
                         <div>
                             <h3 className='flex gap-1'>Assign to <span className='text-red-700 text-xl'>*</span></h3>
-                                <select
-                                    onChange={(e) => setAssignTo(e.target.value)}
-                                    id="employee-names"
-                                    className='rounded-lg p-2 w-125'
-                                    value={assignTo}
-                                >
-                                    {userData.employees.map((employee, idx) => (
-                                        <option className='' key={idx} value={employee.name}>
-                                            {employee.name}
-                                        </option>
-                                    ))}
-                                </select>
+                            <select
+                                onChange={(e) => setAssignTo(e.target.value)}
+                                id="employee-names"
+                                className='rounded-lg p-2 w-125'
+                                value={assignTo}
+                            >
+                                {userData.employees.map((employee, idx) => (
+                                    <option className='' key={idx} value={employee.name}>
+                                        {employee.name}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
 
                         <div>
