@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthProvider'
+import Button from './Button'
 
 const AllTasks = () => {
   const [userData, setUserData] = useContext(AuthContext);
@@ -27,43 +28,55 @@ const AllTasks = () => {
         }
       </div>
 
-      <div className='flex gap-4 mb-4'>
-        <span>📋 New: {selectedEmployee.tasksCount.newTask}</span>
-        <span>⚡ Active: {selectedEmployee.tasksCount.active}</span>
-        <span>✅ Done: {selectedEmployee.tasksCount.completed}</span>
-        <span>❌ Failed: {selectedEmployee.tasksCount.failed}</span>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8'>
+        {(selectedEmployee.tasks.length !== 0) && (
+          <>
+            <div className='flex flex-col justify-between items-center bg-surface border border-blue-500 rounded-lg p-3'>
+              <span className='text-4xl font-bold text-blue-400'>{selectedEmployee.tasksCount.newTask}</span>
+              <span>📋 NEW</span>
+            </div>
+            <div className='flex flex-col justify-between items-center bg-surface border border-yellow-500 rounded-lg p-3'>
+              <span className='text-4xl font-bold text-yellow-400'>{selectedEmployee.tasksCount.active}</span>
+              <span>⚡ ACTIVE</span>
+            </div>
+            <div className='flex flex-col justify-between items-center bg-surface border border-green-500 rounded-lg p-3'>
+              <span className='text-4xl font-bold text-green-400'>{selectedEmployee.tasksCount.completed}</span>
+              <span>✅ DONE</span>
+            </div>
+            <div className='flex flex-col justify-between items-center bg-surface border border-red-500 rounded-lg p-3'>
+              <span className='text-4xl font-bold text-red-400'>{selectedEmployee.tasksCount.failed}</span>
+              <span>❌ FAILED</span>
+            </div>
+          </>
+        )}
       </div>
 
-      <div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {selectedEmployee.tasks.map(task => (
-          <div key={task.id}>
-            <span>{task.taskTitle}</span>
-            <button onClick={() => deleteTask(task.id)}>🗑</button>
+          <div key={task.id} className='flex flex-col gap-3 bg-card px-3 py-3 rounded-lg'>
+
+            <div className='flex justify-between'>
+              <span className='bg-surface text-accent font-semibold px-2 rounded-lg'>{task.category}</span>
+              <span className={`border font-medium px-2 py-0 rounded-xl text-sm ${task.newTask && 'text-blue-500' || task.active && 'text-yellow-500' || task.completed && 'text-green-500' || task.failed && 'text-red-500'}`}>{
+                task.newTask && 'New' || task.active && 'Active' || task.completed && 'Completed' || task.failed && 'Failed'
+              }</span>
+            </div>
+
+            <div className='flex flex-col gap-1 my-2 flex-1'>
+              <span className='text-xl font-bold tracking-tight'>{task.taskTitle}</span>
+              <p className='text-sm text-secondary'>{task.taskDescription}</p>
+              <span className='text-sm text-accent mt-2'>{task.taskDate}</span>
+            </div>
+
+            <Button variant='ghost' id="del-btn" onClick={() => {
+              deleteTask(task.id);
+            }}>Delete</Button>
+
           </div>
         ))}
       </div>
 
-
     </div>
-    // <div className='bg-card p-4 m-10 rounded-xl flex flex-col gap-3'>
-    //   <div className='flex justify-between bg-[#fe4d4d] p-3 rounded-xl text-center font-semibold'>
-    //     <h3 className='w-1/5 '>EmployeeName</h3>
-    //     <p className='w-1/5 '>New Task</p>
-    //     <p className='w-1/5 '>Active</p>
-    //     <p className='w-1/5 '>Completed</p>
-    //     <p className='w-1/5 '>Failed</p>
-    //   </div>
-
-    //   {userData.employees.map((employee, idx) => {
-    //     return <div key={idx} className='flex justify-between border border-accent p-3 rounded-xl text-center'>
-    //       <h3 className='w-1/5 text-amber-500'>{employee.name}</h3>
-    //       <p className='w-1/5 text-emerald-700'>{employee.tasksCount.newTask}</p>
-    //       <p className='w-1/5 text-pink-500'>{employee.tasksCount.active}</p>
-    //       <p className='w-1/5 text-rose-500'>{employee.tasksCount.completed}</p>
-    //       <p className='w-1/5 text-green-500'>{employee.tasksCount.failed}</p>
-    //     </div>
-    //   })}
-    // </div>
   )
 }
 

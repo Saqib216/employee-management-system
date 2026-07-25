@@ -10,7 +10,7 @@ const variants = {
 
 const Button = ({ children, variant = 'primary', id, class_, onClick }) => {
     return (
-        <button className={`${class_} ${variants[variant]}`} id={id} onClick={onClick}>
+        <button className={`${variants[variant]} ${class_} `} id={id} onClick={onClick}>
             {children}
         </button>
     )
