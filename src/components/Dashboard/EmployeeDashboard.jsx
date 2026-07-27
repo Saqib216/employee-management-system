@@ -12,7 +12,7 @@ const EmployeeDashboard = ({ handleLogout, employeeData }) => {
   const freshEmployee = userData?.employees.find(e => e.email === employeeData.email) || employeeData;
 
   return (
-    <div className='m-5'>
+    <div>
         <Header handleLogout={handleLogout} employeeData={freshEmployee} />
         <TaskListOverview employeeData={freshEmployee}/>
         <TaskList employeeData={freshEmployee}/>

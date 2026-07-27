@@ -36,7 +36,7 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
 
             <div className='flex gap-3 items-center'>
                 <button
-                    className="w-9 h-9 flex items-center justify-center bg-card border border-border rounded-lg text-secondary hover:text-primary hover:border-border-hover cursor-pointer transition-all duration-200"
+                    className="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:text-primary cursor-pointer transition-all duration-200"
                 >
                     <i className="fa-solid fa-moon text-sm"></i>
                 </button>

@@ -47,7 +47,7 @@ const SignIn = ({ handleLogin }) => {
 
                 <div className='flex flex-col gap-2'>
                     <h2 className='text-4xl font-semibold  tracking-tight'>Welcome back</h2>
-                    <p className='text-sm text-secondary tracking font-medium'>Let's get started, sign in to continue.</p>
+                    <p className='text-sm text-secondary tracking-tight font-medium'>Let's get started, sign in to continue.</p>
                 </div>
 
                 <form onSubmit={(e) => {
