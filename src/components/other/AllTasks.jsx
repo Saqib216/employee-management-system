@@ -59,13 +59,13 @@ const AllTasks = () => {
               onClick={() => setSelectedEmployee(employee)}
               className={`flex items-center gap-2 py-1 px-4 rounded-md text-sm font-medium cursor-pointer transition-all duration-200
                 ${isActive
-                  ? 'bg-primary text-surface shadow-sm'
+                  ? 'bg-accent text-surface shadow-sm'
                   : 'bg-card text-secondary border border-border hover:border-border-hover hover:text-primary'
                 }`}
             >
               {employee.name.split(' ')[0]}
               <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold
-                ${isActive ? 'bg-surface/30 text-surface' : 'bg-surface text-muted'}`}>
+                ${isActive ? 'bg-primary/50 text-surface' : 'bg-surface text-muted'}`}>
                 {employee.tasks.length}
               </span>
             </button>
