@@ -96,7 +96,6 @@ select option {
     margin-bottom: 2px;
     color: var(--color-secondary);
     background: transparent;
-    transition: all 0.1s ease-in-out;
 }
 
 /* 5. Style Hover & Selected States */
