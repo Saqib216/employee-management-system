@@ -77,21 +77,22 @@ const CreateTask = () => {
                     <p className='text-sm text-secondary tracking-tight font-medium'>Create and assign a new task to the employees</p>
                 </div>
 
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                <div className='grid lg:grid-cols-5 gap-x-6 gap-y-5 pl-6'>
 
-                    <div>
-                        <h3 className='flex gap-1'>Task Title <span className='text-red-700 text-xl'>*</span></h3>
+                    <div className='col-span-3 flex flex-col gap-1'>
+                        <h3 className='flex gap-1 items-center'>Task Title <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i>
+                        </h3>
                         <input required value={taskTitle} onChange={(e) => {
                             setTaskTitle(e.target.value);
-                        }} type="text" placeholder='Make a Navbar component in react' className='border border-border rounded-lg p-2 bg-surface w-125' />
+                        }} type="text" placeholder='Make a Navbar component in react' className='border border-border rounded-lg p-2 bg-card w-full placeholder:text-muted' />
                     </div>
 
-                    <div>
-                        <h3 className='flex gap-1'>Assign to <span className='text-red-700 text-xl'>*</span></h3>
+                    <div className='col-span-2 flex flex-col gap-1'>
+                        <h3 className='flex gap-1 items-center'>Assign to <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
                         <select
                             onChange={(e) => setAssignTo(e.target.value)}
                             id="employee-names"
-                            className='rounded-lg p-2 w-125'
+                            className='rounded-lg p-2 w-full'
                             value={assignTo}
                         >
                             {userData.employees.map((employee, idx) => (
@@ -102,27 +103,28 @@ const CreateTask = () => {
                         </select>
                     </div>
 
-                    <div>
-                        <h3 className='flex gap-1'>Category <span className='text-red-700 text-xl'>*</span></h3>
-                        <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-lg p-2 w-125 bg-surface' />
+                    <div className='col-span-2 flex flex-col gap-1'>
+                        <h3 className='flex gap-1 items-center'>Category <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
+                        <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-lg p-2 w-full placeholder:text-muted bg-card' />
                     </div>
 
-                    <div>
-                        <h3 className='flex gap-1'>Date <span className='text-red-700 text-xl'>*</span></h3>
+                    <div className='col-span-2 flex flex-col gap-1'>
+                        <h3 className='flex gap-1 items-center'>Date <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
                         <input required value={taskDate} onChange={(e) => {
                             setTaskDate(e.target.value);
-                        }} type="date" className='border border-border rounded-lg p-2 w-125 bg-surface text-primary' />
+                        }} type="date" className='border border-border rounded-lg p-2 w-full placeholder:text-muted bg-card text-primary' />
                     </div>
 
-                    <div className='flex flex-col gap-2 col-span-2'>
+                    <div className='flex flex-col gap-1 col-span-5'>
                         <h3>Description</h3>
                         <textarea value={taskDescription} onChange={(e) => {
                             setTaskDescription(e.target.value);
-                        }} placeholder='Add Description' className='border border-border rounded-lg p-2 w-125 min-h-50 bg-surface
+                        }} placeholder='Add Description' className='border border-border rounded-lg p-2 w-full placeholder:text-muted min-h-50 bg-card
                         '></textarea>
                     </div>
-
-                    <Button id="create-task-btn" variant="primary" class_="h-fit w-fit px-3 py-1">Create Task</Button>
+                </div>
+                <div className='flex justify-end pl-6 mt-2'>
+                    <Button id="create-task-btn" variant="primary" class_="px-5 py-2 text-sm hover:bg-accent tracking-tight">Create Task</Button>
                 </div>
             </form>
         </div>

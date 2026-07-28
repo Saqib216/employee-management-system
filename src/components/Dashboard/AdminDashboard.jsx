@@ -9,8 +9,8 @@ const AdminDashboard = ({ handleLogout, adminData }) => {
   return (
     <div>
       <Header handleLogout={handleLogout} adminData={adminData} />
-      <CreateTask />
       <AllTasks />
+      <CreateTask />
     </div>
   )
 }

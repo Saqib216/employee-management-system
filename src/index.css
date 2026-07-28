@@ -73,7 +73,7 @@ select {
     padding: 10px;
     border: 1px solid var(--color-border);
     border-radius: 6px;
-    background: var(--color-surface);
+    background: var(--color-card);
     color: var(--color-primary);
     font-size: 16px;
     cursor: pointer;
@@ -96,22 +96,23 @@ select option {
     margin-bottom: 2px;
     color: var(--color-secondary);
     background: transparent;
+    transition: all 0.1s ease-in-out;
 }
 
 /* 5. Style Hover & Selected States */
 select option:hover {
-    background: var(--color-muted);
-    color: var(--color-surface);
+    background: var(--color-card);
+    color: var(--color-accent);
 }
 
 select option:checked {
     background: var(--color-card);
     /* Selected Item Background */
-    color: #fff;
+    color: var(--color-accent);
 }
 
 select option::checkmark {
-    color: #fff;
+    color: var(--color-accent);
 }
 
 #task-list::-webkit-scrollbar {
