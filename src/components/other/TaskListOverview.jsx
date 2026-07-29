@@ -35,7 +35,10 @@ const TaskListOverview = ({ employeeData }) => {
 
     return (
         <div className="mx-10 flex flex-col gap-3">
-            <h2 className='font-semibold text-2xl tracking-tight text-primary'>Overview</h2>
+            <div className="flex flex-col gap-1">
+                <h2 className='font-semibold text-2xl tracking-tight text-primary'>Overview</h2>
+                <p className='text-sm text-muted'>Get a quick overview of your performance.</p>
+            </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8'>
                 {stats.map(stat => {
                     const percent = total > 0 ? Math.round((stat.count / total) * 100) : 0;
