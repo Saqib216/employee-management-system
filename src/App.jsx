@@ -55,20 +55,16 @@ const App = () => {
         navigate('/dashboard/employee')
       }
       return true;
-      
+
     } else {
       return false;
     }
   }
 
   const handleLogout = () => {
-    if (confirm(
-      (user?.role === 'admin') ? `${user?.name.split(' ')[1]}, are you sure you want to log out?` : `${user?.name.split(' ')[0]}, are you sure you want to log out?`
-    )) {
-      setUser(null);
-      localStorage.removeItem('loggedInUser');  // remove the loggedInUser from localStorage upon logout.
-      navigate('/');
-    }
+    setUser(null);
+    localStorage.removeItem('loggedInUser');  // remove the loggedInUser from localStorage upon logout.
+    navigate('/');
   }
 
   return (

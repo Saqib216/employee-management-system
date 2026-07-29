@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import { useState } from 'react';
 
 const Header = ({ handleLogout, employeeData, adminData }) => {
     const userName = employeeData?.name || adminData?.name || 'User';
     const isAdmin = Boolean(adminData);
     const roleLabel = isAdmin ? 'Admin' : 'Employee';
+
+    const [confirmLogout, setConfirmLogout] = useState(false);
 
     return (
         <header className='w-full px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
@@ -26,8 +29,8 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
 
                     {/* Role Pill */}
                     <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border uppercase tracking-wider ${isAdmin
-                            ? 'bg-accent/10 text-accent border-accent/20'
-                            : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                        ? 'bg-accent/10 text-accent border-accent/20'
+                        : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
                         }`}>
                         {roleLabel}
                     </span>
@@ -41,9 +44,22 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
                     <i className="fa-solid fa-moon text-sm"></i>
                 </button>
 
-                <Button variant="secondary" id="logout-btn" onClick={handleLogout} class_="px-3.5 py-1.5 text-xs font-semibold">
-                    Log out
-                </Button>
+                {confirmLogout ? (
+                    <div className='flex items-center gap-2'>
+                        <span className='text-xs text-muted'>{userName === adminData?.name ? `Sure, ${userName.split(' ')[1]}` : `Sure, ${userName.split(' ')[0]}`}?</span>
+                        <Button onClick={() => setConfirmLogout(false)} variant='secondary' id="cancel-btn" class_="text-xs px-2 text-secondary py-1 hover:text-primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={handleLogout} variant='danger' id="logout-btn-2" class_="text-xs px-2 py-1">
+                            Log out
+                        </Button>
+                    </div>
+                ) : (
+                    <Button variant="secondary" id="logout-btn" onClick={() => setConfirmLogout(true)} class_="px-3.5 py-1.5 text-xs font-semibold">
+                        Log out
+                    </Button>
+                )
+                }
             </div>
         </header>
     )
