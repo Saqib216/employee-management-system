@@ -145,3 +145,8 @@ textarea:focus,
 select:hover {
     outline: none;
 }
+
+::selection{
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
