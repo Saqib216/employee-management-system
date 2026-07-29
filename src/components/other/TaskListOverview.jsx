@@ -34,7 +34,7 @@ const TaskListOverview = ({ employeeData }) => {
     const total = employeeData.tasksCount.newTask + employeeData.tasksCount.active + employeeData.tasksCount.completed + employeeData.tasksCount.failed;
 
     return (
-        <div className="mx-10 mb-10 flex flex-col gap-3">
+        <div className="mx-10 flex flex-col gap-3">
             <h2 className='font-semibold text-2xl tracking-tight text-primary'>Overview</h2>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8'>
                 {stats.map(stat => {

@@ -3,20 +3,13 @@ import { AuthContext } from "../../context/AuthProvider"
 
 // Determine card status from task flags
 const getStatus = (task) => {
-    if (task.newTask) return 'new';
-    if (task.active) return 'active';
-    if (task.completed) return 'completed';
-    if (task.failed) return 'failed';
-    return 'unknown';
+    if (task.active) return { label: 'Active', dot: 'bg-warning', text: 'text-warning' };
+    if (task.completed) return { label: 'Completed', dot: 'bg-success', text: 'text-success' };
+    if (task.failed) return { label: 'Failed', dot: 'bg-danger', text: 'text-danger' };
+    return { label: 'New', dot: 'bg-info', text: 'text-info' };
 }
 
-// Badge color per status
-const statusStyle = {
-    new: 'bg-blue-600',
-    active: 'bg-yellow-500',
-    completed: 'bg-green-700',
-    failed: 'bg-red-700',
-}
+// (statusStyle removed — now using dot + label from getStatus)
 
 // Func to get the due date text color
 const getTextColor = (daysLeft) => {
@@ -69,68 +62,64 @@ const TaskCard = ({ task }) => {
     const markFailed = () => updateTask({ active: false, newTask: false, completed: false, failed: true });
 
     return (
-        <div className='flex flex-col gap-6 bg-card w-[25%] h-75 p-4 rounded-xl shrink-0'>
-            {(status === 'active' || status === 'new') &&
-                (
-                    <div className="flex justify-end">
-                        <p className={`${urgencyClass} font-semibold bg-surface rounded-lg py-1 px-2`}>
-                            {(daysLeft > 0 && `⏳ ${daysLeft} day${daysLeft === 1 ? '' : 's'} remaining`) ||
-                                (daysLeft === 0 && `⚠️ Due Today`) ||
-                                (daysLeft < 0 && `🔴 Overdue by ${Math.abs(daysLeft)} days!`)}
-                        </p>
-                    </div>
-                )
-            }
-            {/* Top row: category + date */}
-            <div className='flex justify-between items-center'>
-                <span className={`${statusStyle[status]} rounded-lg px-3 py-1 text-xs font-semibold`}>
+        <div className='flex flex-col gap-3 bg-card border border-border rounded-md p-4 hover:border-border-hover transition-colors duration-200'>
+
+            {/* Card Header: Category chip + Status dot+label */}
+            <div className='flex items-center justify-between'>
+                <span className='text-[11px] font-semibold uppercase tracking-wider text-muted px-2 py-0.5 bg-surface rounded-md border border-border'>
                     {task.category}
                 </span>
-                <p className='text-sm text-secondary'>{task.taskDate}</p>
+                <span className={`flex items-center gap-1.5 text-xs font-medium ${status.text}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`}></span>
+                    {status.label}
+                </span>
             </div>
 
-            {/* Task info */}
-            <div className='flex-1'>
-                <h2 className='font-semibold text-xl mb-1'>{task.taskTitle}</h2>
-                <p className='text-sm text-secondary line-clamp-3'>{task.taskDescription}</p>
+            {/* Task Title & Description */}
+            <div className='flex flex-col gap-1 flex-1'>
+                <h3 className='text-base font-semibold tracking-tight text-primary leading-snug'>{task.taskTitle}</h3>
+                <p className='text-xs text-muted line-clamp-2 leading-relaxed'>{task.taskDescription}</p>
             </div>
 
-            {/* Action buttons : depend on current status */}
-            <div className='flex justify-between gap-2'>
-                {status === 'new' && (
-                    <button
-                        onClick={markAccepted}
-                        className='bg-blue-600 rounded-lg px-3 py-1 text-sm cursor-pointer hover:opacity-80 transition-opacity'
-                    >
-                        Accept Task
-                    </button>
+            {/* Card Footer: Deadline + Action buttons */}
+            <div className='flex items-center justify-between pt-2 border-t border-border'>
+                {/* Deadline countdown — only for new/active */}
+                {(status.label === 'Active' || status.label === 'New') ? (
+                    <span className={`text-[11px] font-semibold ${urgencyClass}`}>
+                        {daysLeft > 0 && `⏳ ${daysLeft}d left`}
+                        {daysLeft === 0 && '⚠️ Due today'}
+                        {daysLeft < 0 && `🔴 Overdue ${Math.abs(daysLeft)}d`}
+                    </span>
+                ) : (
+                    <span className='text-xs text-muted flex items-center gap-1.5'>
+                        <i className='fa-regular fa-calendar text-[11px]'></i>
+                        {task.taskDate}
+                    </span>
                 )}
 
-                {status === 'active' && (
-                    <>
-                        <button
-                            onClick={markCompleted}
-                            className='bg-green-600 rounded-lg px-3 py-1 text-sm cursor-pointer hover:opacity-80 transition-opacity'
-                        >
-                            Mark Completed
+                {/* Action buttons */}
+                <div className='flex gap-2'>
+                    {status.label === 'New' && (
+                        <button onClick={markAccepted}
+                            className='text-xs font-medium px-3 py-1.5 rounded-md bg-info/10 text-info border border-info/20 hover:bg-info/20 cursor-pointer transition-colors'>
+                            Accept
                         </button>
-                        <button
-                            onClick={markFailed}
-                            className='bg-red-600 rounded-lg px-3 py-1 text-sm cursor-pointer hover:opacity-80 transition-opacity'
-                        >
-                            Mark Failed
-                        </button>
-                    </>
-                )}
-
-                {status === 'completed' && (
-                    <span className='text-green-500 text-sm font-semibold'>✓ Completed</span>
-                )}
-
-                {status === 'failed' && (
-                    <span className='text-red-500 text-sm font-semibold'>✗ Failed</span>
-                )}
+                    )}
+                    {status.label === 'Active' && (
+                        <>
+                            <button onClick={markCompleted}
+                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-success/10 text-success border border-success/20 hover:bg-success/20 cursor-pointer transition-colors'>
+                                Complete
+                            </button>
+                            <button onClick={markFailed}
+                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-danger/10 text-danger border border-danger/20 hover:bg-danger/20 cursor-pointer transition-colors'>
+                                Failed
+                            </button>
+                        </>
+                    )}
+                </div>
             </div>
+
         </div>
     )
 }
