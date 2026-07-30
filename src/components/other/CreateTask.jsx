@@ -80,7 +80,7 @@ const CreateTask = () => {
                 <div className='grid lg:grid-cols-5 gap-x-6 gap-y-5 pl-6'>
 
                     <div className='col-span-3 flex flex-col gap-1'>
-                        <h3 className='flex gap-1 items-center'>Task Title <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i>
+                        <h3 className='flex gap-1 items-center'>Task Title <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span>
                         </h3>
                         <input required value={taskTitle} onChange={(e) => {
                             setTaskTitle(e.target.value);
@@ -88,7 +88,7 @@ const CreateTask = () => {
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
-                        <h3 className='flex gap-1 items-center'>Assign to <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
+                        <h3 className='flex gap-1 items-center'>Assign to <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
                         <select
                             onChange={(e) => setAssignTo(e.target.value)}
                             id="employee-names"
@@ -104,12 +104,12 @@ const CreateTask = () => {
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
-                        <h3 className='flex gap-1 items-center'>Category <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
+                        <h3 className='flex gap-1 items-center'>Category <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
                         <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-md p-2 w-full placeholder:text-muted bg-card transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-focus-ring' />
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
-                        <h3 className='flex gap-1 items-center'>Date <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
+                        <h3 className='flex gap-1 items-center'>Date <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
                         <input required value={taskDate} onChange={(e) => {
                             setTaskDate(e.target.value);
                         }} type="date" className='border border-border rounded-md p-2 w-full placeholder:text-muted bg-card text-primary transition-all duration-150 ease-in-out hover:border-muted' />
