@@ -27,6 +27,9 @@
     /* accepted/pending */
     --status-info: #3291ff;
     /* new task — same as accent, keeps it cohesive */
+
+    /* for inputs box shadow: */
+    --focus-ring: #3d3d3d; 
 }
 
 @theme {
@@ -49,6 +52,8 @@
     --color-danger: var(--status-danger);
     --color-warning: var(--status-warning);
     --color-info: var(--status-info);
+
+    --color-focus-ring: var(--focus-ring);
 }
 
 body {
@@ -194,4 +199,7 @@ select:hover {
     --status-danger:  #c8143f;
     --status-warning: #c47a04;
     --status-info:    #0070f3;
+
+    /* focus ring */
+    --focus-ring: #e5e5e5;
 }
