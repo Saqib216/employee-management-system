@@ -172,18 +172,26 @@ select:hover {
     background-color: var(--border-gray-hover);
 }
 
-/* theme toggle: */
+/* Light theme */
 .light {
-    --black: #ffffff;
-    --near-black: #fafafa;
-    --card-bg: #ffffff;
-    --border-gray: #eaeaea;
-    --border-gray-hover: #d4d4d4;
-    --white: #0a0a0a;
-    --gray-300: #525252;
-    --gray-500: #737373;
-    --accent-blue: #0070f3;        
+    --black: #f5f5f5;           /* page surface slightly gray, NOT white */
+    --near-black: #efefef;      /* secondary surfaces */
+    --card-bg: #ffffff;         /* cards pop against the gray surface */
+
+    --border-gray: #d4d4d4;         /* default border */
+    --border-gray-hover: #a3a3a3;   /* hover border */
+
+    --white: #0a0a0a;           /* primary text — near black */
+    --gray-300: #404040;        /* secondary text — dark enough to read */
+    --gray-500: #737373;        /* muted/placeholder text */
+
+    /* Accent */
+    --accent-blue: #0070f3;
     --accent-blue-hover: #0050c8;
-    --status-success: #12a150;
-    --status-danger: #d91a60;
+
+    /* Status colors */
+    --status-success: #0f9b46;
+    --status-danger:  #c8143f;
+    --status-warning: #c47a04;
+    --status-info:    #0070f3;
 }

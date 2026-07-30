@@ -5,8 +5,6 @@ import useTheme from '../../hooks/useTheme';
 
 
 const SignIn = ({ handleLogin }) => {
-    // console.log(handleLogin);
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
