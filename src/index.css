@@ -171,3 +171,19 @@ select:hover {
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--border-gray-hover);
 }
+
+/* theme toggle: */
+.light {
+    --black: #ffffff;
+    --near-black: #fafafa;
+    --card-bg: #ffffff;
+    --border-gray: #eaeaea;
+    --border-gray-hover: #d4d4d4;
+    --white: #0a0a0a;
+    --gray-300: #525252;
+    --gray-500: #737373;
+    --accent-blue: #0070f3;        
+    --accent-blue-hover: #0050c8;
+    --status-success: #12a150;
+    --status-danger: #d91a60;
+}

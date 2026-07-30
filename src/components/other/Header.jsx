@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = ({ handleLogout, employeeData, adminData }) => {
     const userName = employeeData?.name || adminData?.name || 'User';
@@ -8,6 +8,28 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
     const roleLabel = isAdmin ? 'Admin' : 'Employee';
 
     const [confirmLogout, setConfirmLogout] = useState(false);
+
+    const [isDark, setIsDark] = useState(() => {
+        return localStorage.getItem('theme') !== 'light';
+    });
+
+    const toggleTheme = () => {
+        const next = !isDark;
+        setIsDark(next);
+
+        // apply/remove .light class on <html> tag:
+        document.documentElement.classList.toggle('light', !next);
+        // set the choice to localStorage for persistance:
+        localStorage.setItem('theme', next ? 'dark' : 'light');
+    }
+
+    useEffect(() => { 
+        const saved = localStorage.getItem('theme');
+        if(saved==='light'){
+            document.documentElement.classList.add('light');
+            setIsDark(false);
+        }
+     }, []);
 
     return (
         <header className='w-full px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
@@ -39,9 +61,11 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
 
             <div className='flex gap-3 items-center'>
                 <button
+                    onClick={toggleTheme}
+                    title='Toggle theme'
                     className="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:text-primary cursor-pointer transition-all duration-200"
                 >
-                    <i className="fa-solid fa-moon text-sm"></i>
+                    <i className={`fa-solid ${isDark? 'fa-moon' : 'fa-sun'} text-sm`}></i>
                 </button>
 
                 {confirmLogout ? (
