@@ -37,7 +37,7 @@ const SignIn = ({ handleLogin }) => {
                     <div className='w-11 h-11 flex items-center justify-center bg-card rounded-lg'>
                         <span className='text-accent font-bold text-lg'>W</span>
                     </div>
-                    <h2 className='text-lg font-semibold tracking-wide uppercase text-primary'>Workforce Pro</h2>
+                    <h2 className='text-lg font-semibold tracking-tight uppercase text-primary'>Workforce Pro</h2>
                 </Link>
 
                 <button
