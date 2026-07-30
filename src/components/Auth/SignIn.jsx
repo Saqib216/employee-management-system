@@ -65,13 +65,13 @@ const SignIn = ({ handleLogin }) => {
                     <input value={email} onChange={(e) => {
                         setEmail(e.target.value);
                         setError('');
-                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted outline-none hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out ${error ? 'border-danger' : 'border-border'}`} type="email" placeholder='name@company.com' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 focus:ring-[#3d3d3d] ${error ? 'border-danger' : 'border-border'}`} type="email" placeholder='name@company.com' />
 
                     <label className='text-[11px] font-semibold uppercase tracking-wider text-muted'>Password</label>
                     <input value={password} onChange={(e) => {
                         setPassword(e.target.value);
                         setError('');
-                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted outline-none hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out ${error ? 'border-danger' : 'border-border'}'}`} type="password" placeholder='••••••••' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 focus:ring-[#3d3d3d] ${error ? 'border-danger' : 'border-border'}'}`} type="password" placeholder='••••••••' />
 
                     {
                         error && (
