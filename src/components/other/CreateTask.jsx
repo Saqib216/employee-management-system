@@ -84,7 +84,7 @@ const CreateTask = () => {
                         </h3>
                         <input required value={taskTitle} onChange={(e) => {
                             setTaskTitle(e.target.value);
-                        }} type="text" placeholder='Make a Navbar component in react' className='border border-border rounded-md p-2 bg-card w-full placeholder:text-muted' />
+                        }} type="text" placeholder='Make a Navbar component in react' className='border border-border rounded-md p-2 bg-card w-full placeholder:text-muted transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-[#3d3d3d]' />
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
@@ -92,7 +92,7 @@ const CreateTask = () => {
                         <select
                             onChange={(e) => setAssignTo(e.target.value)}
                             id="employee-names"
-                            className='rounded-md p-2 w-full'
+                            className='rounded-md p-2 w-full transition-all duration-150 ease-in-out '
                             value={assignTo}
                         >
                             {userData.employees.map((employee, idx) => (
@@ -105,14 +105,14 @@ const CreateTask = () => {
 
                     <div className='col-span-2 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Category <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
-                        <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-md p-2 w-full placeholder:text-muted bg-card' />
+                        <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-md p-2 w-full placeholder:text-muted bg-card transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-[#3d3d3d]' />
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Date <i className="fa-solid fa-asterisk text-red-700 text-[10px]"></i></h3>
                         <input required value={taskDate} onChange={(e) => {
                             setTaskDate(e.target.value);
-                        }} type="date" className='border border-border rounded-md p-2 w-full placeholder:text-muted bg-card text-primary' />
+                        }} type="date" className='border border-border rounded-md p-2 w-full placeholder:text-muted bg-card text-primary transition-all duration-150 ease-in-out hover:border-muted' />
                     </div>
 
                     <div className='flex flex-col gap-1 col-span-5'>
@@ -120,7 +120,7 @@ const CreateTask = () => {
                         <textarea value={taskDescription} onChange={(e) => {
                             setTaskDescription(e.target.value);
                         }} placeholder='Add Description' className='border border-border rounded-md p-2 w-full placeholder:text-muted min-h-50 bg-card
-                        '></textarea>
+                        transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-[#3d3d3d]'></textarea>
                     </div>
                 </div>
                 <div className='flex justify-end pl-6 mt-2'>
