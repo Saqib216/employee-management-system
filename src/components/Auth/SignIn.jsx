@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from '../other/Button';
 import { Link } from 'react-router-dom';
+import useTheme from '../../hooks/useTheme';
 
 
 const SignIn = ({ handleLogin }) => {
@@ -10,6 +11,8 @@ const SignIn = ({ handleLogin }) => {
     const [password, setPassword] = useState('');
 
     const [error, setError] = useState('');
+
+    const {isDark, toggleTheme} = useTheme();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -32,7 +35,6 @@ const SignIn = ({ handleLogin }) => {
         <div className='flex flex-col gap-5 justify-center w-screen h-screen items-center bg-surface px-4'>
 
             <header className='flex cursor-pointer items-center gap-3 w-screen fixed top-0 px-3 py-3 border-b border-b-border outline-none justify-between'>
-
                 <Link to='/' className='flex items-center gap-3'>
                     <div className='w-11 h-11 flex items-center justify-center bg-card rounded-lg'>
                         <span className='text-accent font-bold text-lg'>W</span>
@@ -40,7 +42,13 @@ const SignIn = ({ handleLogin }) => {
                     <h2 className='text-lg font-semibold tracking-wide uppercase text-primary'>Workforce Pro</h2>
                 </Link>
 
-                <i className="fa-solid fa-moon"></i>
+                <button
+                    onClick={toggleTheme}
+                    title='Toggle theme'
+                    className="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:text-primary cursor-pointer transition-all duration-200"
+                >
+                    <i className={`fa-solid ${isDark? 'fa-moon' : 'fa-sun'} text-sm`}></i>
+                </button>
             </header>
 
             <div className='w-full max-w-100 flex flex-col gap-8'>

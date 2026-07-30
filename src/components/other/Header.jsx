@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import { useEffect, useState } from 'react';
+import useTheme from '../../hooks/useTheme';
 
 const Header = ({ handleLogout, employeeData, adminData }) => {
     const userName = employeeData?.name || adminData?.name || 'User';
@@ -9,27 +10,7 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
 
     const [confirmLogout, setConfirmLogout] = useState(false);
 
-    const [isDark, setIsDark] = useState(() => {
-        return localStorage.getItem('theme') !== 'light';
-    });
-
-    const toggleTheme = () => {
-        const next = !isDark;
-        setIsDark(next);
-
-        // apply/remove .light class on <html> tag:
-        document.documentElement.classList.toggle('light', !next);
-        // set the choice to localStorage for persistance:
-        localStorage.setItem('theme', next ? 'dark' : 'light');
-    }
-
-    useEffect(() => { 
-        const saved = localStorage.getItem('theme');
-        if(saved==='light'){
-            document.documentElement.classList.add('light');
-            setIsDark(false);
-        }
-     }, []);
+    const {isDark, toggleTheme} = useTheme();
 
     return (
         <header className='w-full px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
