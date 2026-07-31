@@ -117,10 +117,16 @@ const CreateTask = () => {
                     </div>
 
                     <div className='col-span-2 flex flex-col gap-1'>
-                        <h3 className='flex gap-1 items-center'>Date <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
-                        <input required value={taskDate} onChange={(e) => {
-                            setTaskDate(e.target.value);
-                        }} type="date" className='border border-border rounded-md p-2 w-full placeholder:text-muted bg-card text-primary transition-all duration-150 ease-in-out hover:border-muted' />
+                        <h3 className='flex gap-1 items-center'>
+                            Date <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span>
+                        </h3>
+                        <input
+                            required
+                            value={taskDate}
+                            onChange={(e) => setTaskDate(e.target.value)}
+                            type="date"
+                            className='border border-border rounded-md p-2 w-full bg-card text-primary transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-focus-ring cursor-pointer' 
+                        />
                     </div>
 
                     <div className='flex flex-col gap-1 col-span-5' id='taskDesc'>
