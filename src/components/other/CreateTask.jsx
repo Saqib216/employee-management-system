@@ -77,9 +77,9 @@ const CreateTask = () => {
 
                 <div className='flex flex-col gap-1'>
                     <div className='flex gap-2 h-fit items-center '>
-                        <p className='border border-border h-9 w-9 rounded-full flex font-semibold text-muted hover:border-border-hover items-center justify-center transition-all duration-150'>
+                        <a className='border border-border h-9 w-9 rounded-full flex font-semibold text-muted hover:border-border-hover hover:text-primary items-center justify-center transition-all duration-150' href='#taskDesc' >
                             <i class="fa-solid fa-plus"></i>
-                        </p>
+                        </a>
                         <div className='font-semibold text-2xl tracking-tight'>Assign Tasks</div>
                     </div>
                     <p className='text-sm text-secondary tracking-tight font-medium'>Create and assign a new task to the employees</p>
@@ -123,7 +123,7 @@ const CreateTask = () => {
                         }} type="date" className='border border-border rounded-md p-2 w-full placeholder:text-muted bg-card text-primary transition-all duration-150 ease-in-out hover:border-muted' />
                     </div>
 
-                    <div className='flex flex-col gap-1 col-span-5'>
+                    <div className='flex flex-col gap-1 col-span-5' id='taskDesc'>
                         <h3>Description</h3>
                         <textarea value={taskDescription} onChange={(e) => {
                             setTaskDescription(e.target.value);
