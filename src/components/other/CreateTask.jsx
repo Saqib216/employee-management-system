@@ -56,10 +56,18 @@ const CreateTask = () => {
     return (
         <div>
             {message && (
-                <div className='fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-bounce-in'>
-                    <p className='bg-green-800 border border-green-500 text-green-200 px-6 py-3 rounded-xl shadow-lg tracking-wide text-base font-semibold flex items-center gap-2'>
-                        ✅ {message}
+                <div className='fixed bottom-6 right-6 z-50 animate-bounce-in flex items-center gap-3 bg-card border border-border px-4 py-3 rounded-md shadow-2xl backdrop-blur-md transition-all duration-300'>
+                    <i className="fa-solid fa-circle-check text-success text-sm"></i>
+                    <p className='text-xs font-medium text-primary tracking-tight'>
+                        {message}
                     </p>
+                    <button
+                        onClick={() => setMessage('')}
+                        className='text-muted hover:text-primary transition-colors ml-2 text-xs cursor-pointer'
+                        title='Close'
+                    >
+                        <i className="fa-solid fa-xmark"></i>
+                    </button>
                 </div>
             )}
 
