@@ -101,18 +101,24 @@ const TaskCard = ({ task }) => {
                 <div className='flex gap-2'>
                     {status.label === 'New' && (
                         <button onClick={markAccepted}
-                            className='text-xs font-medium px-3 py-1.5 rounded-md bg-info/10 text-info border border-info/20 hover:bg-info/20 cursor-pointer transition-colors'>
+                            className='text-xs font-medium px-3 py-1.5 rounded-md bg-info/10 text-info border border-info/20 hover:bg-info/20 cursor-pointer transition-colors'
+                            title="Accept task"
+                        >
                             Accept
                         </button>
                     )}
                     {status.label === 'Active' && (
                         <>
                             <button onClick={markCompleted}
-                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-success/10 text-success border border-success/20 hover:bg-success/20 cursor-pointer transition-colors'>
+                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-success/10 text-success border border-success/20 hover:bg-success/20 cursor-pointer transition-colors'
+                                title="Mark as completed"
+                            >
                                 Complete
                             </button>
                             <button onClick={markFailed}
-                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-danger/10 text-danger border border-danger/20 hover:bg-danger/20 cursor-pointer transition-colors'>
+                                className='text-xs font-medium px-3 py-1.5 rounded-md bg-danger/10 text-danger border border-danger/20 hover:bg-danger/20 cursor-pointer transition-colors'
+                                title="Mark as failed"
+                            >
                                 Failed
                             </button>
                         </>

@@ -8,9 +8,9 @@ const variants = {
     ghost:    'px-4 py-2 text-secondary border border-secondary rounded-md cursor-pointer hover:border-primary hover:text-surface transition-all duration-300 font-semibold hover:bg-primary active:opacity-50',
 }
 
-const Button = ({ children, variant = 'primary', id, class_, onClick }) => {
+const Button = ({ children, variant = 'primary', id, class_, onClick, title }) => {
     return (
-        <button className={twMerge(variants[variant], class_)} id={id} onClick={onClick}>
+        <button className={twMerge(variants[variant], class_)} id={id} onClick={onClick} title={title}>
             {children}
         </button>
     )
