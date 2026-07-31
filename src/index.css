@@ -57,6 +57,10 @@
     --color-focus-ring: var(--focus-ring);
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html {
     scroll-behavior: smooth;
 }
