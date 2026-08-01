@@ -20,7 +20,7 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
                     <div className='w-9 h-9 flex items-center justify-center bg-card border border-border rounded-lg group-hover:border-border-hover transition-colors duration-150 ease-in-out'>
                         <span className='text-accent font-bold text-base'>W</span>
                     </div>
-                    <h2 className='text-sm font-semibold tracking-tight uppercase text-primary'>Workforce Pro</h2>
+                    <h2 className='hidden sm:block text-sm font-semibold tracking-tight uppercase text-primary'>Workforce Pro</h2>
                 </Link>
 
                 <span className='w-[1px] h-5 bg-border'></span>

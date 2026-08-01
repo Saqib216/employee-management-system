@@ -85,7 +85,7 @@ const CreateTask = () => {
                     <p className='text-sm text-secondary tracking-tight font-medium'>Create and assign a new task to the employees</p>
                 </div>
 
-                <div className='grid lg:grid-cols-5 gap-x-6 gap-y-5 pl-6'>
+                <div className='grid lg:grid-cols-5 gap-x-6 gap-y-5 pl-0 sm:pl-6'>
 
                     <div className='col-span-3 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Task Title <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span>
@@ -137,7 +137,7 @@ const CreateTask = () => {
                         transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-focus-ring'></textarea>
                     </div>
                 </div>
-                <div className='flex justify-end pl-6 mt-2'>
+                <div className='flex justify-end pl-0 sm:pl-6 mt-2'>
                     <Button id="create-task-btn" variant="primary" class_="px-5 py-2 text-sm hover:bg-accent tracking-tight">Create Task</Button>
                 </div>
             </form>

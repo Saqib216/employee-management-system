@@ -50,7 +50,7 @@ const AllTasks = () => {
       </div>
 
       {/* Employee Tab Pills */}
-      <div className='flex gap-2 flex-wrap mb-6 border-b border-border pb-4'>
+      <div className='flex gap-2 overflow-x-auto flex-wrap mb-6 border-b border-border pb-3 no-scrollbar whitespace-nowrap'>
         {userData.employees.map(employee => {
           const isActive = selectedEmployee.email === employee.email;
           return (
