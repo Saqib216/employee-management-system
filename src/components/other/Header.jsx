@@ -10,7 +10,7 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
 
     const [confirmLogout, setConfirmLogout] = useState(false);
 
-    const {isDark, toggleTheme} = useTheme();
+    const { isDark, toggleTheme } = useTheme();
 
     return (
         <header className='w-full px-4 sm:px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
@@ -46,18 +46,14 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
                     title='Toggle theme'
                     className="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:text-primary cursor-pointer transition-all duration-200"
                 >
-                    <i className={`fa-solid ${isDark? 'fa-moon' : 'fa-sun'} text-sm`}></i>
+                    <i className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'} text-sm`}></i>
                 </button>
 
                 {confirmLogout ? (
-                    <div className='flex items-center gap-1.5'>
-                        <span className='hidden sm:inline text-xs text-muted'>{userName === adminData?.name ? `Sure, ${userName.split(' ')[1]}` : `Sure, ${userName.split(' ')[0]}`}?</span>
-                        <Button onClick={() => setConfirmLogout(false)} variant='secondary' id="cancel-btn" class_="text-xs px-2 text-secondary py-1 hover:text-primary" title="Cancel Logout">
-                            Cancel
-                        </Button>
-                        <Button onClick={handleLogout} variant='danger' id="logout-btn-2" class_="text-xs px-2 py-1" title="Logout">
-                            Log out
-                        </Button>
+                    <div className='absolute right-4 top-14 bg-card border border-border rounded-lg p-3 shadow-2xl flex items-center gap-3 z-50 animate-in fade-in slide-in-from-top-1'>
+                        <span className='text-xs text-secondary whitespace-nowrap'>{userName === adminData?.name ? `Sure, ${userName.split(' ')[1]}` : `Sure, ${userName.split(' ')[0]}`}?</span>
+                        <Button onClick={() => setConfirmLogout(false)} variant='secondary' class_="text-xs px-2 py-1" title="Cancel Logout">Cancel</Button>
+                        <Button onClick={handleLogout} variant='danger' class_="text-xs px-2 py-1" title="Confirm Logout">Log out</Button>
                     </div>
                 ) : (
                     <Button variant="secondary" id="logout-btn" onClick={() => setConfirmLogout(true)} class_="px-3.5 py-1.5 text-xs font-semibold" title="Logout">
