@@ -41,7 +41,7 @@ const AllTasks = () => {
   };
 
   return (
-    <div className='mx-10 mb-10'>
+    <div className='mx-4 sm:mx-10 mb-10'>
 
       {/* Section Header */}
       <div className='flex flex-col gap-1 mb-6'>

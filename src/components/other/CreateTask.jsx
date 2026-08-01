@@ -71,7 +71,7 @@ const CreateTask = () => {
                 </div>
             )}
 
-            <form id="task-form" className='flex flex-col gap-8 m-10' onSubmit={(e) => {
+            <form id="task-form" className='flex flex-col gap-8 m-4 sm:m-10' onSubmit={(e) => {
                 submitHandler(e);
             }}>
 

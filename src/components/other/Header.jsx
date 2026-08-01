@@ -13,7 +13,7 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
     const {isDark, toggleTheme} = useTheme();
 
     return (
-        <header className='w-full px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
+        <header className='w-full px-4 sm:px-6 py-3 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between sticky top-0 z-40 mb-8'>
 
             <div className='flex gap-4 items-center'>
                 <Link to='/' className='flex items-center gap-3 group'>

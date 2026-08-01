@@ -34,7 +34,7 @@ const TaskListOverview = ({ employeeData }) => {
     const total = employeeData.tasksCount.newTask + employeeData.tasksCount.active + employeeData.tasksCount.completed + employeeData.tasksCount.failed;
 
     return (
-        <div className="mx-10 flex flex-col gap-3">
+        <div className="mx-4 sm:mx-10 flex flex-col gap-3">
             <div className="flex flex-col gap-1">
                 <h2 className='font-semibold text-2xl tracking-tight text-primary'>Overview</h2>
                 <p className='text-sm text-muted'>Get a quick overview of your performance.</p>
