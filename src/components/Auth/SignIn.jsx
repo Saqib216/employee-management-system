@@ -30,9 +30,9 @@ const SignIn = ({ handleLogin }) => {
         setPassword('');
     }
     return (
-        <div className='flex flex-col gap-5 justify-center w-screen h-screen items-center bg-surface px-4'>
+        <div className='flex flex-col gap-5 justify-center w-full min-h-svh items-center bg-surface px-4'>
 
-            <header className='flex cursor-pointer items-center gap-3 w-screen fixed top-0 px-3 py-3 border-b border-b-border outline-none justify-between'>
+            <header className='flex items-center gap-3 w-full fixed top-0 left-0 px-4 py-3 border-b border-border bg-surface/80 backdrop-blur-md justify-between z-50'>
                 <Link to='/' className='flex items-center gap-3'>
                     <div className='w-11 h-11 flex items-center justify-center bg-card rounded-lg'>
                         <span className='text-accent font-bold text-lg'>W</span>
