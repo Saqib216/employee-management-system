@@ -50,8 +50,8 @@ const Header = ({ handleLogout, employeeData, adminData }) => {
                 </button>
 
                 {confirmLogout ? (
-                    <div className='flex items-center gap-2'>
-                        <span className='text-xs text-muted'>{userName === adminData?.name ? `Sure, ${userName.split(' ')[1]}` : `Sure, ${userName.split(' ')[0]}`}?</span>
+                    <div className='flex items-center gap-1.5'>
+                        <span className='hidden sm:inline text-xs text-muted'>{userName === adminData?.name ? `Sure, ${userName.split(' ')[1]}` : `Sure, ${userName.split(' ')[0]}`}?</span>
                         <Button onClick={() => setConfirmLogout(false)} variant='secondary' id="cancel-btn" class_="text-xs px-2 text-secondary py-1 hover:text-primary" title="Cancel Logout">
                             Cancel
                         </Button>
