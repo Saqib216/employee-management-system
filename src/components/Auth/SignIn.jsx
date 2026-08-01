@@ -52,7 +52,7 @@ const SignIn = ({ handleLogin }) => {
             <div className='w-full max-w-100 flex flex-col gap-8'>
 
                 <div className='flex flex-col gap-2'>
-                    <h2 className='text-4xl font-semibold  tracking-tight'>Welcome back</h2>
+                    <h2 className='text-2xl sm:text-4xl font-semibold  tracking-tight'>Welcome back</h2>
                     <p className='text-sm text-secondary tracking-tight font-medium'>Let's get started, sign in to continue.</p>
                 </div>
 
@@ -65,13 +65,13 @@ const SignIn = ({ handleLogin }) => {
                     <input value={email} onChange={(e) => {
                         setEmail(e.target.value);
                         setError('');
-                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 focus:ring-focus-ring ${error ? 'border-danger' : 'border-border'}`} type="email" placeholder='name@company.com' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 text-base sm:text-sm focus:ring-focus-ring ${error ? 'border-danger' : 'border-border'}`} type="email" placeholder='name@company.com' />
 
                     <label className='text-[11px] font-semibold uppercase tracking-wider text-muted'>Password</label>
                     <input value={password} onChange={(e) => {
                         setPassword(e.target.value);
                         setError('');
-                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 focus:ring-focus-ring ${error ? 'border-danger' : 'border-border'}'}`} type="password" placeholder='••••••••' />
+                    }} className={`bg-card border border-border px-3.5 py-3 rounded-md placeholder:text-muted hover:border-muted focus:border-primary h-14 transition-all duration-150 ease-in-out focus:ring-4 focus:ring-focus-ring text-base sm:text-sm ${error ? 'border-danger' : 'border-border'}'}`} type="password" placeholder='••••••••' />
 
                     {
                         error && (

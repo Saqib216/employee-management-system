@@ -45,12 +45,12 @@ const AllTasks = () => {
 
       {/* Section Header */}
       <div className='flex flex-col gap-1 mb-6'>
-        <h2 className='font-semibold text-2xl tracking-tight text-primary'>Employee Tasks</h2>
+        <h2 className='font-semibold text-xl sm:text-2xl tracking-tight text-primary'>Employee Tasks</h2>
         <p className='text-sm text-muted font-medium'>View and manage tasks assigned to each employee.</p>
       </div>
 
       {/* Employee Tab Pills */}
-      <div className='flex gap-2 overflow-x-auto flex-wrap mb-6 border-b border-border pb-3 no-scrollbar whitespace-nowrap'>
+      <div className='flex gap-2 overflow-x-auto mb-6 border-b border-border pb-3 no-scrollbar whitespace-nowrap'>
         {userData.employees.map(employee => {
           const isActive = selectedEmployee.email === employee.email;
           return (
@@ -82,7 +82,7 @@ const AllTasks = () => {
                 <span className={`w-1.5 h-1.5 rounded-full ${stat.dot}`}></span>
                 <span className='text-xs font-semibold uppercase tracking-wider text-muted'>{stat.label}</span>
               </div>
-              <span className={`text-3xl font-bold tracking-tight font-mono ${stat.color}`}>{stat.count}</span>
+              <span className={`text-2xl sm:text-3xl font-bold tracking-tight font-mono ${stat.color}`}>{stat.count}</span>
             </div>
           ))}
         </div>
@@ -93,7 +93,7 @@ const AllTasks = () => {
         {selectedEmployee.tasks.map(task => {
           const status = getStatus(task);
           return (
-            <div key={task.id} className='flex flex-col gap-3 bg-card border border-border rounded-md p-4 hover:border-border-hover transition-colors duration-200'>
+            <div key={task.id} className='flex flex-col gap-3 bg-card border border-border rounded-md p-3 sm:p-4 hover:border-border-hover transition-colors duration-200'>
 
               {/* Card Header: Category + Status */}
               <div className='flex items-center justify-between'>

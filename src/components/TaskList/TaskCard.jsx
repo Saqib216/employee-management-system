@@ -62,7 +62,7 @@ const TaskCard = ({ task }) => {
     const markFailed = () => updateTask({ active: false, newTask: false, completed: false, failed: true });
 
     return (
-        <div className='flex flex-col gap-3 bg-card border border-border rounded-md p-4 hover:border-border-hover transition-colors duration-200'>
+        <div className='flex flex-col gap-3 bg-card border border-border rounded-md p-3 sm:p-4 hover:border-border-hover transition-colors duration-200'>
 
             {/* Card Header: Category chip + Status dot+label */}
             <div className='flex items-center justify-between'>

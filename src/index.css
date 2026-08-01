@@ -89,8 +89,8 @@ select {
     border-radius: 6px;
     background: var(--color-card);
     color: var(--color-primary);
-    font-size: 16px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 /* 3. Style The Dropdown List (The "Picker") */

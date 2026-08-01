@@ -36,18 +36,18 @@ const TaskListOverview = ({ employeeData }) => {
     return (
         <div className="mx-4 sm:mx-10 flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-                <h2 className='font-semibold text-2xl tracking-tight text-primary'>Overview</h2>
+                <h2 className='font-semibold text-xl sm:text-2xl tracking-tight text-primary'>Overview</h2>
                 <p className='text-sm text-muted'>Get a quick overview of your performance.</p>
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8'>
                 {stats.map(stat => {
                     const percent = total > 0 ? Math.round((stat.count / total) * 100) : 0;
-                    return <div key={stat.label} className={`bg-card border ${stat.border} rounded-md p-4 flex flex-col gap-2`}>
+                    return <div key={stat.label} className={`bg-card border ${stat.border} rounded-md p-3 sm:p-4 flex flex-col gap-2`}>
                         <div className='flex items-center gap-2'>
                             <span className={`w-1.5 h-1.5 rounded-full ${stat.dot}`}></span>
                             <span className='text-xs font-semibold uppercase tracking-wider text-muted'>{stat.label}</span>
                         </div>
-                        <span className={`text-3xl font-bold tracking-tight font-mono ${stat.color}`}>
+                        <span className={`text-2xl sm:text-3xl font-bold tracking-tight font-mono ${stat.color}`}>
                             {stat.count}
                         </span>
                         {/* progress bar: */}
