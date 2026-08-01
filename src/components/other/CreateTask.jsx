@@ -85,9 +85,9 @@ const CreateTask = () => {
                     <p className='text-sm text-secondary tracking-tight font-medium'>Create and assign a new task to the employees</p>
                 </div>
 
-                <div className='grid lg:grid-cols-5 gap-x-6 gap-y-5 pl-0 sm:pl-6'>
+                <div className='grid grid-cols-5 gap-x-6 gap-y-5 pl-0 sm:pl-6'>
 
-                    <div className='col-span-3 flex flex-col gap-1'>
+                    <div className='col-span-5 sm:col-span-3 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Task Title <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span>
                         </h3>
                         <input required value={taskTitle} onChange={(e) => {
@@ -95,7 +95,7 @@ const CreateTask = () => {
                         }} type="text" placeholder='Make a Navbar component in react' className='border border-border rounded-md p-2 bg-card w-full placeholder:text-muted transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-focus-ring text-base sm:text-sm' />
                     </div>
 
-                    <div className='col-span-2 flex flex-col gap-1'>
+                    <div className='col-span-5 sm:col-span-3 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Assign to <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
                         <select
                             onChange={(e) => setAssignTo(e.target.value)}
@@ -111,12 +111,12 @@ const CreateTask = () => {
                         </select>
                     </div>
 
-                    <div className='col-span-2 flex flex-col gap-1'>
+                    <div className='col-span-5 sm:col-span-3 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>Category <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span></h3>
                         <input required value={category} onChange={(e) => { setCategory(e.target.value) }} type="text" placeholder='programming, dev, design, etc...' className='outline-none border border-border rounded-md p-2 w-full placeholder:text-muted bg-card transition-all duration-150 ease-in-out hover:border-muted focus:border-primary focus:ring-4 focus:ring-focus-ring text-base sm:text-sm' />
                     </div>
 
-                    <div className='col-span-2 flex flex-col gap-1'>
+                    <div className='col-span-5 sm:col-span-3 flex flex-col gap-1'>
                         <h3 className='flex gap-1 items-center'>
                             Date <span className='w-1.5 h-1.5 rounded-full bg-danger inline-block'></span>
                         </h3>
