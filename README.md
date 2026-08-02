@@ -50,11 +50,18 @@ There is no backend. All application state (users, tasks, task counts) lives in 
 
 ## Screenshots
 
-| Login | Admin Dashboard | Employee Dashboard |
-|---|---|---|
-| *[Add screenshot]* | *[Add screenshot]* | *[Add screenshot]* |
+### 1. Login Screen
+![Login Screen](src/assets/screenshots/login.png)
 
-*(Add 3-4 screenshots showing the login screen, admin task creation, admin overview table, and the employee task board)*
+### 2. Admin Dashboard
+![Admin Dashboard](src/assets/screenshots/admin.png)
+
+### 3. Employee Dashboard
+![Employee Dashboard](src/assets/screenshots/employee.png)
+
+### 4. Light Theme Mode
+![Light Theme Mode](src/assets/screenshots/light-theme.png)
+
 
 ## Key Features
 
