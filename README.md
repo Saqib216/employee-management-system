@@ -101,7 +101,7 @@ There is no backend. All application state (users, tasks, task counts) lives in 
 | State Management | React Context API |
 | Persistence | Browser localStorage |
 | Linting | ESLint |
-| Deployment | Netlify |
+| Deployment | Vercel |
 
 ## Architecture & Design Decisions
 
