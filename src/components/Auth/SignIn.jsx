@@ -10,7 +10,7 @@ const SignIn = ({ handleLogin }) => {
 
     const [error, setError] = useState('');
 
-    const {isDark, toggleTheme} = useTheme();
+    const { isDark, toggleTheme } = useTheme();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -45,7 +45,7 @@ const SignIn = ({ handleLogin }) => {
                     title='Toggle theme'
                     className="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:text-primary cursor-pointer transition-all duration-200"
                 >
-                    <i className={`fa-solid ${isDark? 'fa-moon' : 'fa-sun'} text-sm`}></i>
+                    <i className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'} text-sm`}></i>
                 </button>
             </header>
 
@@ -81,6 +81,12 @@ const SignIn = ({ handleLogin }) => {
 
                     <Button id="login-btn" class_="w-full mt-6 py-3 text-md" variant="primary">Continue</Button>
                 </form>
+
+                {/* Demo Credentials Hint */}
+                <div className='flex flex-col gap-1 text-[11px] text-muted text-center -mt-2'>
+                    <p><span className='font-semibold text-secondary'>Admin:</span> admin@ems.com · Admin@123</p>
+                    <p><span className='font-semibold text-secondary'>Employee:</span> ali.raza@ems.com · Ali@1234</p>
+                </div>
             </div>
         </div>
     )
