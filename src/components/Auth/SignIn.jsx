@@ -83,10 +83,10 @@ const SignIn = ({ handleLogin }) => {
                 </form>
 
                 {/* Demo Credentials Hint */}
-                <div className='flex flex-col gap-1 text-[11px] text-muted text-center -mt-2'>
+                {/* <div className='flex flex-col gap-1 text-[11px] text-muted text-center -mt-2'>
                     <p><span className='font-semibold text-secondary'>Admin:</span> admin@ems.com · Admin@123</p>
                     <p><span className='font-semibold text-secondary'>Employee:</span> ali.raza@ems.com · Ali@1234</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
