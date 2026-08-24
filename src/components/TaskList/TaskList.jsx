@@ -5,7 +5,7 @@ const TaskList = ({ employeeData }) => {
     return (
         <div className='mx-4 sm:mx-10 mt-5'>
             <div className='flex flex-col gap-1 mb-6'>
-                <h2 className='font-semibold text-xl sm:text-2xl-2xl tracking-tight text-primary'>My Tasks</h2>
+                <h2 className='font-semibold text-xl sm:text-2xl tracking-tight text-primary'>My Tasks</h2>
                 <p className='text-sm text-muted'>Your assigned tasks and their current status.</p>
             </div>
 
